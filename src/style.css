@@ -32,3 +32,16 @@
     border-radius:35px; 
     padding-left:4%;  
 }
+
+.display-content {
+    display: contents;
+}
+
+nav p {
+    text-align: center;
+    font-size: 10px;
+}
+
+.float-left {
+    float: left;
+}

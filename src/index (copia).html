@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+    
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+      
+    
+
+    <!--My CSS file -->
+    <link rel="stylesheet" type="text/css" href="style.css">  
+      
+    <title>Where am I ?</title>
+      
+      
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+      
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+      
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+      
+    <!-- Open Maps whit Map Box-->
+    <script src='https://api.mapbox.com/mapbox-gl-js/v1.4.1/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v1.4.1/mapbox-gl.css' rel='stylesheet' />
+
+      
+</head>
+    
+<body class="bg-black">
+
+<!--Set the map on the html-->
+ <div id='map'></div>
+<script>
+mapboxgl.accessToken = 'pk.eyJ1IjoibWF0dGlhY2VsdW5vIiwiYSI6ImNrMjYxb3Z1bjE5Y2IzY21xZW1laTZjdHcifQ.-tO_ahzF55IoOpnPtMH0VQ';
+var map = new mapboxgl.Map({
+container: 'map',
+style: 'mapbox://styles/mattiaceluno/ck263uc6k08xu1cpiog49klp4'
+});
+</script>
+    
+    
+<nav class="navbar fixed-bottom navbar-dark bg-black">
+<!--
+  <div class="row display-content text-center">
+    <div class="col-sm-1">
+    </div>
+      
+    <div class="col-sm-2 color-white float-left">
+    <ion-icon name="pin" size="large"></ion-icon>
+    <br>
+    <p>La mia posizione</p>
+    </div>
+    <div class="col-sm-2 color-white float-left">
+        <ion-icon name="map" size="large"></ion-icon>
+        <br>
+        <p>Vicino a me</p>
+    </div>
+    <div class="col-sm-2 color-white float-left">
+    <ion-icon name="cloud-upload" size="large"></ion-icon>
+        <br>
+        <p>Aggiungi media</p>
+    </div>
+     <div class="col-sm-2 color-white float-left">
+         <ion-icon name="apps" size="large"></ion-icon>
+         <br>
+         <p>Categorie</p>
+    </div>
+          <div class="col-sm-2 color-white float-left">
+              <ion-icon name="search" size="large"></ion-icon>
+              <br>
+              <p>Cerca</p>
+    </div> 
+      
+    <div class="col-sm-1">
+    </div>
+  </div>
+-->
+    <div class="container color-white text-center">
+  <div class="row display-content">
+    <div class="col col1">
+            <ion-icon name="pin" size="large"></ion-icon>
+            <br>
+            <p>La mia posizione</p>
+    </div>
+      
+    <div class="col col2">
+            <ion-icon name="map" size="large"></ion-icon>
+            <br>
+            <p>Vicino a me</p>
+    </div>
+      
+    <div class="col col3">
+            <ion-icon name="cloud-upload" size="large"></ion-icon>
+            <br>
+            <p>Aggiungi media</p>
+      </div>
+      
+    <div class="col col4">
+            <ion-icon name="apps" size="large"></ion-icon>
+            <br>
+            <p>Categorie</p>
+      </div>
+      
+    <div class="col col5">
+            <ion-icon name="search" size="large"></ion-icon>
+            <br>
+            <p>Cerca</p>
+      </div>
+  </div>
+</div>
+       
+    
+</nav>
+    
+    
+    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+  </body>
+</html>

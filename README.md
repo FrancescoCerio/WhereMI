@@ -16,5 +16,5 @@ Permette ad una guida di creare annotazioni audio oppure testuali, associarle a 
 # Sviluppatori 
 Site181908
 
-
-
+# Licenza
+Progetto sotto GPLv3 License - vedere LICENSE.md per i dettagli

@@ -40,9 +40,30 @@ nav p {
     float: left;
 }
 
-@media only screen and (max-width: 600px) {
-  nav p {
-    font-size: 8px;
+.col a{
+  text-decoration:none;
+}
+
+.col a:hover{
+  color:#fff;
+}
+
+
+/* MOBILE */
+
+@media only screen and (max-width: 450px) {
+  .navbar{
+    text-align: center;
+    /*padding: 20px;*/
+  }
+
+  .col{
+    padding: 0 1%;
+    margin: 0;
+  }
+
+  ion-icon{
+    font-size: small;
   }
 }
 
@@ -74,4 +95,83 @@ nav p {
   padding-right: 15px;
   padding-bottom: 4px;
   padding-top: 4px;
+}
+
+/* CSS PAGINA MEDIA */
+.div-left{
+  background-color: #3A3A3A;
+  width: 44%;
+  height: 25%;
+  border: 0px;
+  border-radius: 10px;
+  float:left;
+  margin:2% auto auto 4%;
+  text-align: center;
+  position:relative;
+  overflow:hidden;
+  cursor: pointer;
+}
+
+.btn {
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+
+.div-left input[type=file]{
+  font-size: 100px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+  border: none;
+  background: none;
+  color: transparent;
+  position:absolute;
+  cursor: pointer;
+}
+
+.div-left input[type=file]:hover{
+  cursor: pointer;
+}
+
+.div-right{
+  background-color: #3A3A3A;
+  width: 44%;
+  height: 25%;
+  border: 0px;
+  border-radius: 10px;
+  float:right;
+  margin:2% 4% auto auto;
+  text-align: center;
+  position:relative;
+  overflow:hidden;
+  cursor: pointer;
+}
+
+.div-right input[type=file]{
+  font-size: 100px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+  border: none;
+  background: none;
+  color: transparent;
+  position:absolute;
+  cursor: pointer;
+}
+
+.div-right input[type=file]:hover{
+  cursor: pointer;
+}
+
+.media-icon{
+  margin:10% auto auto 4%;
+  font-size: 80px;
+}
+
+.box-text{
+  padding-left:4%;
 }

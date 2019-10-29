@@ -1,17 +1,20 @@
+/
+
 .color-white {
-    color:#fff;
+    color: #fff;
 }
+
 .bg-black {
-    background-color:#212122;
+    background-color: #212122;
 }
 
 #mapid {
     position: fixed;
     border-radius: 35px;
-    top:0;
-    left:0;
-    bottom:0;
-    right:0;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
     width: 90%;
     height: 80%;
     margin: 5%;
@@ -40,31 +43,31 @@ nav p {
     float: left;
 }
 
-.col a{
-  text-decoration:none;
+.col a {
+    text-decoration: none;
 }
 
-.col a:hover{
-  color:#fff;
+.col a:hover {
+    color: #fff;
 }
 
 
 /* MOBILE */
 
 @media only screen and (max-width: 450px) {
-  .navbar{
-    text-align: center;
-    /*padding: 20px;*/
-  }
+    .navbar {
+        text-align: center;
+        /*padding: 20px;*/
+    }
 
-  .col{
-    padding: 0 1%;
-    margin: 0;
-  }
+    .col {
+        padding: 0 1%;
+        margin: 0;
+    }
 
-  ion-icon{
-    font-size: small;
-  }
+    ion-icon {
+        font-size: small;
+    }
 }
 
 
@@ -82,98 +85,98 @@ nav p {
 }
 
 #input-style {
-  width: 90%;
-  color:#fff;
-  box-sizing: border-box;
-  border: 0px;
-  border-radius: 100px;
-  background-color: #3A3A3A;
-  background-image: url('./images/searchicon2.png');
-  background-position: 10px 50%;
-  background-repeat: no-repeat;
-  padding-left: 40px;
-  padding-right: 15px;
-  padding-bottom: 4px;
-  padding-top: 4px;
+    width: 90%;
+    color: #fff;
+    box-sizing: border-box;
+    border: 0px;
+    border-radius: 100px;
+    background-color: #3A3A3A;
+    background-image: url('./images/searchicon2.png');
+    background-position: 10px 50%;
+    background-repeat: no-repeat;
+    padding-left: 40px;
+    padding-right: 15px;
+    padding-bottom: 4px;
+    padding-top: 4px;
 }
 
 /* CSS PAGINA MEDIA */
-.div-left{
-  background-color: #3A3A3A;
-  width: 44%;
-  height: 25%;
-  border: 0px;
-  border-radius: 10px;
-  float:left;
-  margin:2% auto auto 4%;
-  text-align: center;
-  position:relative;
-  overflow:hidden;
-  cursor: pointer;
+.div-left {
+    background-color: #3A3A3A;
+    width: 44%;
+    height: 25%;
+    border: 0px;
+    border-radius: 10px;
+    float: left;
+    margin: 2% auto auto 4%;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
 }
 
 .btn {
-  color: #fff;
-  font-weight: bold;
-  cursor: pointer;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
 }
 
 
-.div-left input[type=file]{
-  font-size: 100px;
-  position: absolute;
-  left: 0;
-  top: 0;
-  opacity: 0;
-  border: none;
-  background: none;
-  color: transparent;
-  position:absolute;
-  cursor: pointer;
+.div-left input[type=file] {
+    font-size: 100px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    border: none;
+    background: none;
+    color: transparent;
+    position: absolute;
+    cursor: pointer;
 }
 
-.div-left input[type=file]:hover{
-  cursor: pointer;
+.div-left input[type=file]:hover {
+    cursor: pointer;
 }
 
-.div-right{
-  background-color: #3A3A3A;
-  width: 44%;
-  height: 25%;
-  border: 0px;
-  border-radius: 10px;
-  float:right;
-  margin:2% 4% auto auto;
-  text-align: center;
-  position:relative;
-  overflow:hidden;
-  cursor: pointer;
+.div-right {
+    background-color: #3A3A3A;
+    width: 44%;
+    height: 25%;
+    border: 0px;
+    border-radius: 10px;
+    float: right;
+    margin: 2% 4% auto auto;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
 }
 
-.div-right input[type=file]{
-  font-size: 100px;
-  position: absolute;
-  left: 0;
-  top: 0;
-  opacity: 0;
-  border: none;
-  background: none;
-  color: transparent;
-  position:absolute;
-  cursor: pointer;
+.div-right input[type=file] {
+    font-size: 100px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    border: none;
+    background: none;
+    color: transparent;
+    position: absolute;
+    cursor: pointer;
 }
 
-.div-right input[type=file]:hover{
-  cursor: pointer;
+.div-right input[type=file]:hover {
+    cursor: pointer;
 }
 
-.media-icon{
-  margin:10% auto auto 4%;
-  font-size: 80px;
+.media-icon {
+    margin: 10% auto auto 4%;
+    font-size: 80px;
 }
 
-.box-text{
-  padding-left:4%;
+.box-text {
+    padding-left: 4%;
 }
 
 
@@ -188,16 +191,17 @@ nav p {
     border: solid 0.1px;
     border-color: #3A3A3A;
 }
+
 #myDIV {
-  height: 260px;
-  width: 100%;
-  overflow: auto;
+    height: 260px;
+    width: 100%;
+    overflow: auto;
 }
 
 #content {
-  height: 240px;
-  width: 2200px;
-  background-color: #3A3A3A;
+    height: 240px;
+    width: 2200px;
+    background-color: #3A3A3A;
 }
 
 .row {
@@ -209,5 +213,5 @@ nav p {
     border-radius: 35px;
     margin: 10px;
     height: 80%;
-    
+
 }

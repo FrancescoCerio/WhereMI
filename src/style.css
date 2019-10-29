@@ -1,31 +1,12 @@
-/* CSS DELLA PAGINA INDEX */
+/*CSS FOOTER*/
 
-#first-div {
-    height: 90%;
+a.active ion-icon, a.active p {
+  color:#FF2E55 !important;
+  text-decoration: none !important;
 }
 
-.color-white {
-    color: #fff;
-}
-
-.bg-black {
-    background-color: #212122;
-}
-
-#mapid {
-    position: fixed;
-    border-radius: 35px;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    width: 90%;
-    height: 80%;
-    margin: 5%;
-}
-
-.display-content {
-    display: contents;
+a:hover {
+  text-decoration:none !important;
 }
 
 .navbar {
@@ -43,16 +24,44 @@ nav p {
     font-size: 10px;
 }
 
+p, ion-icon{
+  color:#7F7F7F !important;
+}
+
+/* CSS DELLA PAGINA INDEX */
+
+#first-div {
+    height: 90%;
+}
+
+.color-white {
+    color: #fff;
+}
+
+.bg-black {
+    background-color: #111;
+}
+
+#mapid {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.display-content {
+    display: contents;
+}
+
 .float-left {
     float: left;
 }
 
 .col a {
     text-decoration: none;
-}
-
-.col a:hover {
-    color: #fff;
 }
 
 

@@ -1,5 +1,9 @@
 /* CSS DELLA PAGINA INDEX */
 
+#first-div {
+    height: 90%;
+}
+
 .color-white {
     color: #fff;
 }
@@ -25,7 +29,7 @@
 }
 
 .navbar {
-
+    height: 10%;
     background-color: #3A3A3A;
     z-index: 9999;
 }
@@ -81,7 +85,7 @@ nav p {
 }
 
 .h-top {
-    margin-top: 25px;
+    margin-top: 20px;
 }
 
 #input-style {
@@ -181,15 +185,17 @@ nav p {
 
 
 /*CSS DELLA PAGINA CATEGORIE*/
+
 .margin-top {
     margin-top: 5px;
 }
 
 .linea {
     height: 0px;
-    width: 100%;
-    border: solid 0.1px;
+    width: 90%;
+    border: solid 0.5px;
     border-color: #3A3A3A;
+    margin: auto;
 }
 
 #myDIV {

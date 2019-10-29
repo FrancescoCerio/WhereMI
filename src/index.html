@@ -223,8 +223,16 @@
             //   }).addTo(mymap);
             // });
 
+            // Route vuoto
+            route = L.Routing.control({
+                waypoints: []
+            })
+
             var getRoute = (features) => {
-                L.Routing.control({
+                // Cancello il controllo route vecchio
+                mymap.removeControl(route);
+                
+                route = L.Routing.control({
                     waypoints: [
                         L.latLng(latlng),
                         L.latLng(features.geometry.coordinates[1], features.geometry.coordinates[0])

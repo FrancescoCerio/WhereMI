@@ -182,12 +182,13 @@
       var getRoute = (features) => {
         // Cancello il controllo route vecchio
         mymap.removeControl(route);
-
+        options = {profile:'mapbox/walking',language:'it'}
         route = L.Routing.control({
           waypoints: [
             L.latLng(latlng),
             L.latLng(features.geometry.coordinates[1], features.geometry.coordinates[0])
           ],
+          router: new L.Routing.mapbox('pk.eyJ1IjoibWF0dGlhY2VsdW5vIiwiYSI6ImNrMjYxb3Z1bjE5Y2IzY21xZW1laTZjdHcifQ.-tO_ahzF55IoOpnPtMH0VQ', options),
           lineOptions: {
             styles: [{
               color: '#FF2E55'

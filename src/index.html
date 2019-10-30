@@ -2,382 +2,419 @@
 <html lang="en" dir="ltr">
 
 <head>
-    <meta charset="utf-8">
-    <title>Where am I ?</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <title>Where am I ?</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!--Mobile Web App iPhone-->
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <!--Mobile Web App Android-->
-    <meta name="mobile-web-app-capable" content="yes">
+  <!--Mobile Web App iPhone-->
+  <meta name="apple-mobile-web-app-capable" content="yes">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-    <!--My CSS file -->
-    <link rel="stylesheet" type="text/css" href="style.css">
+  <!--My CSS file -->
+  <link rel="stylesheet" type="text/css" href="style.css">
 
-    <!-- Leaflet's CSS -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin="" />
-    <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" />
+  <!-- Leaflet's CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin="" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" />
 
-    <!-- Make sure you put this AFTER Leaflet's CSS -->
-    <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js" integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og==" crossorigin=""></script>
-    <script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"></script>
+  <!-- Make sure you put this AFTER Leaflet's CSS -->
+  <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js" integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og==" crossorigin=""></script>
+  <script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"></script>
 
-    <!-- jQuery first, then Popper.js, then Bootstrap JS, then AJAX -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <!-- jQuery first, then Popper.js, then Bootstrap JS, then AJAX -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
-    <script type="module" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule="" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.js"></script>
-    <script type="text/javascript">
-        $('#mapid').empty()
+  <script type="module" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule="" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.js"></script>
+  <script type="text/javascript">
+    $('#mapid').empty()
+    // Prendo posizione : latitudine e longitudine
+    navigator.geolocation.getCurrentPosition(function(location) {
+      var latlng = new L.LatLng(location.coords.latitude, location.coords.longitude);
+      var lat = location.coords.latitude;
+      var long = location.coords.longitude;
+      // Setto la mappa
+      var mymap = L.map('mapid', {
+        center: latlng,
+        zoom: 14,
+        touchZoom: true,
+        doubleClickZoom: true,
+        attributionControl: false
+      });
+      //  console.log(latlng);
+      L.tileLayer('https://api.mapbox.com/styles/v1/mattiaceluno/ck263uc6k08xu1cpiog49klp4/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoibWF0dGlhY2VsdW5vIiwiYSI6ImNrMjYxb3Z1bjE5Y2IzY21xZW1laTZjdHcifQ.-tO_ahzF55IoOpnPtMH0VQ', {
+        attribution: '',
+        maxZoom: 18,
+        id: 'mapbox.streets',
+        accessToken: 'your.mapbox.access.token',
+      }).addTo(mymap);
+      // Metto marker su posizione attuale
+      var marker = L.marker(latlng).addTo(mymap);
+      // Prova Poligono
+      var zonaUniversità = {
+        "type": "Feature",
+        "properties": {},
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                11.354198455810547,
+                44.498739907567064
+              ],
+              [
+                11.353490352630615,
+                44.497086941433054
+              ],
+              [
+                11.356258392333984,
+                44.49626044079391
+              ],
+              [
+                11.356086730957031,
+                44.49811239816374
+              ],
+              [
+                11.354198455810547,
+                44.498739907567064
+              ]
+            ]
+          ]
+        }
+      };
+      L.geoJSON(zonaUniversità, {
+        pointToLayer: function(feature, latlng) {
+          return L.circleMarker(latlng);
+        }
+      }).addTo(mymap);
+      //definisco punti d'interesse
+      var pointOfInterest = {
+        "type": "FeatureCollection",
+        "features": [{
+            "type": "Feature",
+            "properties": {
+              "Id": "1",
+              "Nome": "Università",
+              "img": "images/università.jpg",
+              "desc" : "L'Alma Mater Studiorum – Università di Bologna, a volte indicata come Unibo, è un'università italiana statale, la più antica del mondo. Nonostante le prime edizioni note di statuti universitari risalgano al 1317, una fiorente scuola giuridica esisteva già dall'XI secolo."
 
-        // Prendo posizione : latitudine e longitudine
-        navigator.geolocation.getCurrentPosition(function(location) {
-            var latlng = new L.LatLng(location.coords.latitude, location.coords.longitude);
-            var lat = location.coords.latitude;
-            var long = location.coords.longitude;
+            },
+            "geometry": {
+              "type": "Point",
+              "coordinates": [
+                11.354241371154785,
+                44.49981124947734
+              ]
+            }
+          },
+          {
+            "type": "Feature",
+            "properties": {
+              "Id": "2",
+              "Nome": "Montagnola",
+              "img": "images/montagnola.jpg",
+              "desc": "Il giardino della Montagnola è una delle più antiche e centrali aree verdi della città di Bologna, aperto per la prima volta nel XVII secolo."
 
-            // Setto la mappa
-            var mymap = L.map('mapid', {
-                center: latlng,
-                zoom: 14,
-                touchZoom: true,
-                doubleClickZoom: true,
-                attributionControl: false
+            },
+            "geometry": {
+              "type": "Point",
+              "coordinates": [
+                11.346344947814941,
+                44.502412997875574
+              ]
+            }
+          },
+          {
+            "type": "Feature",
+            "properties": {
+              "Id": "3",
+              "Nome": "Piazza Maggiore",
+              "img": "images/piazza-maggiore.jpg",
+              "desc": "Piazza Maggiore è la piazza principale di Bologna,\n misura 115 metri in lunghezza e 60 metri in larghezza,\n ed è circondata dai più importanti edifici \n della città medievale."
+            },
+            "geometry": {
+              "type": "Point",
+              "coordinates": [
+                11.342911720275879,
+                44.49368903055563
+              ]
+            }
+          },
+          {
+            "type": "Feature",
+            "properties": {
+              "Id": "4",
+              "Nome": "Stazione Centrale",
+              "img": "images/stazione.jpg",
+              "desc" : "La stazione di Bologna Centrale è la principale stazione ferroviaria della città di Bologna e, a maggio 2015, la quinta in Italia per dimensioni e volume di traffico viaggiatori (circa 78 000 m² attraversati da 58 000 000 di viaggiatori all'anno), dopo Roma Termini, Milano Centrale, Torino Porta Nuova e Firenze Santa Maria Novella. Nel 2013 sono stati attivati 4 binari dedicati all'Alta Velocità nella nuova stazione sotterranea."
+            },
+            "geometry": {
+              "type": "Point",
+              "coordinates": [
+                11.342139244079588,
+                44.50556554917157
+              ]
+            }
+          },
+          {
+            "type": "Feature",
+            "properties": {
+              "Id": "5",
+              "Nome": "Zacconi"
+            },
+            "geometry": {
+              "type": "Point",
+              "coordinates": [
+                11.364750266075133,
+                44.50410024616965
+              ]
+            }
+          }
+        ]
+      };
+      geojsonLayer = L.geoJson(pointOfInterest, {
+        style: function(feature) {
+          return {
+            color: '#FF2E55'
+          };
+        },
+        pointToLayer: function(feature, latlng) {
+          return new L.CircleMarker(latlng, {
+            radius: 10,
+            fillOpacity: 0.85
+          });
+        },
+      });
+      mymap.addLayer(geojsonLayer);
+
+      // Route vuoto
+      route = L.Routing.control({
+        waypoints: []
+      })
+
+      var getRoute = (features) => {
+        // Cancello il controllo route vecchio
+        mymap.removeControl(route);
+
+        route = L.Routing.control({
+          waypoints: [
+            L.latLng(latlng),
+            L.latLng(features.geometry.coordinates[1], features.geometry.coordinates[0])
+          ],
+          lineOptions: {
+            styles: [{
+              color: '#FF2E55'
+            }]
+          },
+          routeWhileDragging: false,
+          autoRoute: true,
+          createMarker: function() {
+            return null;
+          }
+        }).addTo(mymap);
+      }
+
+
+
+// Funzione per riempire Div con id Point : è il div che gestisce la pagina dei punti d'interesse
+      var riempiDiv = (features) => {
+
+// Qui creo l'html
+        var myPoint = `
+<div class="closePoint" style="position:fixed;  font-size:25px; top:10px; right:10px; "><a href="#" style="color:#fff; text-decoration:none;" onclick="viewMap()">X</a> </div>
+<header style="
+  height: 100vh;
+  min-height: 500px;
+  background-image: url('` + features.properties.img + `');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;">
+  <div class="container h-100">
+    <div class="row h-100 align-items-center">
+      <div class="col-12 text-center">
+        <h1 style="font-size:70px; color:#fff;">` + features.properties.Nome + `</h1>
+
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Page Content -->
+<section class="py-5">
+  <div class="container">
+    <h2>Descrizione</h2>
+    <p class="lead"> ` + features.properties.desc + `</p>
+    <br>
+    <a href="#" style="text-decoration:none; color:#FF2E55; font-size:20px;" class="indicazioni">
+      Ottieni indicazioni
+    </a>
+  </div>
+</section>
+        `
+
+        // Sostituisco l'html con quello creato
+        $("#point").html(myPoint);
+
+      }
+
+// Per ogni punto d'interesse, al click, comparirà la scheda tecnica
+      geojson = L.geoJson(pointOfInterest, {
+        onEachFeature: function onEachFeature(feature, layer) {
+          layer.on('click', function(e) {
+
+//QUA C'ERA L'ALTERNATIVA DEL POPUP
+
+            //           var popupContent = `<h1 style="margin-bottom:10px">` + feature.properties.GPSUserName + `</h1>
+            //     <br>`
+            //     +
+            //     feature.properties.img
+            //     +
+            //     `
+            //     <br>
+            //     <p> Piazza Maggiore è la piazza principale di Bologna, misura 115 metri in lunghezza e 60 metri in larghezza, ed è circondata dai più importanti edifici della città medievale. </p>
+            // <br>
+            // <a href="#" style="text-decoration:none; color:#FF2E55" class="indicazioni">
+            //    Ottieni indicazioni
+            // </a>
+            // <a href="#" style="text-decoration:none; color:#FFAE55" >
+            //    Vai alla scheda
+            // </a>
+            // `;
+
+            riempiDiv(feature);
+            viewPoint();
+
+            // Cliccando su ottieni indicazioni, ti da le indicazioni e torna sulla mappa
+            $(".indicazioni").on("click", e => {
+              viewMap();
+              getRoute(feature);
             });
-            //  console.log(latlng);
-            L.tileLayer('https://api.mapbox.com/styles/v1/mattiaceluno/ck263uc6k08xu1cpiog49klp4/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoibWF0dGlhY2VsdW5vIiwiYSI6ImNrMjYxb3Z1bjE5Y2IzY21xZW1laTZjdHcifQ.-tO_ahzF55IoOpnPtMH0VQ', {
-                attribution: '',
-                maxZoom: 18,
-                id: 'mapbox.streets',
-                accessToken: 'your.mapbox.access.token',
-            }).addTo(mymap);
 
-            // Metto marker su posizione attuale
-            var marker = L.marker(latlng).addTo(mymap);
-
-            // Prova Poligono
-
-            var zonaUniversità = {
-                "type": "Feature",
-                "properties": {},
-                "geometry": {
-                    "type": "Polygon",
-                    "coordinates": [
-                        [
-                            [
-                                11.354198455810547,
-                                44.498739907567064
-                            ],
-                            [
-                                11.353490352630615,
-                                44.497086941433054
-                            ],
-                            [
-                                11.356258392333984,
-                                44.49626044079391
-                            ],
-                            [
-                                11.356086730957031,
-                                44.49811239816374
-                            ],
-                            [
-                                11.354198455810547,
-                                44.498739907567064
-                            ]
-                        ]
-                    ]
-                }
-            };
-
-            L.geoJSON(zonaUniversità, {
-                pointToLayer: function(feature, latlng) {
-                    return L.circleMarker(latlng);
-                }
-            }).addTo(mymap);
-
-
-            //definisco punti d'interesse
-            var pointOfInterest = {
-                "type": "FeatureCollection",
-                "features": [{
-                        "type": "Feature",
-                        "properties": {
-                            "GPSId": "1",
-                            "DateTime": "7/3/2013 4:47:15 PM",
-                            "GPSUserName": "Università",
-                            "GPSUserColor": "#FF2E55"
-                        },
-                        "geometry": {
-                            "type": "Point",
-                            "coordinates": [
-                                11.354241371154785,
-                                44.49981124947734
-                            ]
-                        }
-                    },
-                    {
-                        "type": "Feature",
-                        "properties": {
-                            "GPSId": "2",
-                            "DateTime": "7/3/2013 4:47:15 PM",
-                            "GPSUserName": "Montagnola",
-                            "GPSUserColor": "#FF2E55"
-                        },
-                        "geometry": {
-                            "type": "Point",
-                            "coordinates": [
-                                11.346344947814941,
-                                44.502412997875574
-                            ]
-                        }
-                    },
-                    {
-                        "type": "Feature",
-                        "properties": {
-                            "GPSId": "3",
-                            "DateTime": "7/3/2013 4:47:15 PM",
-                            "GPSUserName": "Piazza Maggiore",
-                            "GPSUserColor": "#FF2E55"
-                        },
-                        "geometry": {
-                            "type": "Point",
-                            "coordinates": [
-                                11.342911720275879,
-                                44.49368903055563
-                            ]
-                        }
-                    },
-                    {
-                        "type": "Feature",
-                        "properties": {
-                            "GPSId": "4",
-                            "DateTime": "7/3/2013 4:47:15 PM",
-                            "GPSUserName": "Stazione Centrale",
-                            "GPSUserColor": "#FF2E55"
-                        },
-                        "geometry": {
-                            "type": "Point",
-                            "coordinates": [
-                                11.342139244079588,
-                                44.50556554917157
-                            ]
-                        }
-                    },
-                    {
-                        "type": "Feature",
-                        "properties": {
-                            "GPSId": "5",
-                            "DateTime": "7/3/2013 4:47:15 PM",
-                            "GPSUserName": "Zacconi",
-                            "GPSUserColor": "#FF2E55"
-                        },
-                        "geometry": {
-                            "type": "Point",
-                            "coordinates": [
-                                11.364750266075133,
-                                44.50410024616965
-                            ]
-                        }
-                    }
-                ]
-            };
-
-            geojsonLayer = L.geoJson(pointOfInterest, {
-                style: function(feature) {
-                    return {
-                        color: feature.properties.GPSUserColor
-                    };
-                },
-                pointToLayer: function(feature, latlng) {
-                    return new L.CircleMarker(latlng, {
-                        radius: 10,
-                        fillOpacity: 0.85
-                    });
-                },
-                onEachFeature: function(feature, layer) {
-                    layer.bindPopup(feature.properties.GPSUserName);
-                }
-            });
-
-            mymap.addLayer(geojsonLayer);
-
-
-            // Indicazioni stradali cliccando sul marker
-            // L.marker([44.4988889, 11.3500905]).addTo(mymap).on('click', function() {
-            //   L.Routing.control({
-            //     waypoints: [
-            //       L.latLng(latlng),
-            //       L.latLng(44.4988889, 11.3500905)
-            //     ],
-            //     lineOptions: {
-            //       styles: [{
-            //         color: '#FF2E55'
-            //       }]
-            //     },
-            //     routeWhileDragging: true,
-            //     autoRoute: true,
-            //   }).addTo(mymap);
+// ALTERNATIVA POPUP
+            // layer.bindPopup(popupContent).on("popupopen", () => {
+            // $(".indicazioni").on("click", e => {
+            //   getRoute(feature);
+            // });
             // });
 
-            // Route vuoto
-            route = L.Routing.control({
-                waypoints: []
-            })
-
-            var getRoute = (features) => {
-                // Cancello il controllo route vecchio
-                mymap.removeControl(route);
-                
-                route = L.Routing.control({
-                    waypoints: [
-                        L.latLng(latlng),
-                        L.latLng(features.geometry.coordinates[1], features.geometry.coordinates[0])
-                    ],
-                    lineOptions: {
-                        styles: [{
-                            color: '#FF2E55'
-                        }]
-                    },
-                    routeWhileDragging: false,
-                    autoRoute: true,
-                    createMarker: function() {
-                        return null;
-                    }
-                }).addTo(mymap);
-            }
-
-
-
-            geojson = L.geoJson(pointOfInterest, {
-                onEachFeature: function onEachFeature(feature, layer) {
-                    layer.on('click', function(e) {
-                        getRoute(feature);
-                    });
-                }
-            }).addTo(mymap);
-        });
-
-        var viewCategory = () => {
-
-            $("#nearMe, #media, #search").empty();
-            $('#nearMe, #media, #search, #mapid').fadeOut(100);
-            $('#category').load("categorie.html #first-div").fadeIn(0);
-
+          });
         }
+      }).addTo(mymap);
+    });
+    var viewCategory = () => {
+      $("#nearMe, #media, #search, #point").empty();
+      $('#nearMe, #media, #search, #mapid, #point').fadeOut(100);
+      $('#category').load("categorie.html #first-div").fadeIn(0);
+    }
+    var viewMap = () => {
+      $("#category, #nearMe, #media, #search, #point").empty();
+      $("#category, #nearMe, #media, #search, #point").css("display", "none");
+      $("#mapid").fadeIn();
+    }
+    var viewNearMe = () => {
+      $("#category, #media, #search, #point").empty();
+      $('#category, #media, #search, #mapid, #point').fadeOut(100);
+      $('#nearMe').load("nearme.html #first-div").fadeIn(0);
+    }
+    var viewProfilo = () => {
+      $("#category, #nearMe, #search, #point").empty();
+      $('#category, #nearMe, #search, #mapid, #point').fadeOut(100);
+      $('#media').load("profilo.html #first-div").fadeIn(0);
+    }
+    var viewSearch = () => {
+      $("#category, #nearMe, #media, #point").empty();
+      $('#category, #nearMe, #media, #mapid, #point').fadeOut(100);
+      $('#search').load("cerca.html #first-div").fadeIn(0);
+    }
 
-        var viewMap = () => {
-            $("#category, #nearMe, #media, #search").empty();
-            $("#category, #nearMe, #media, #search").css("display", "none");
-            $("#mapid").fadeIn();
-        }
-
-        var viewNearMe = () => {
-
-            $("#category, #media, #search").empty();
-            $('#category, #media, #search, #mapid').fadeOut(100);
-            $('#nearMe').load("nearme.html #first-div").fadeIn(0);;
-        }
-
-        var viewProfilo = () => {
-
-            $("#category, #nearMe, #search").empty();
-            $('#category, #nearMe, #search, #mapid').fadeOut(100);
-            $('#media').load("profilo.html #first-div").fadeIn(0);;
-        }
-
-        var viewSearch = () => {
-
-            $("#category, #nearMe, #media").empty();
-            $('#category, #nearMe, #media, #mapid').fadeOut(100);
-            $('#search').load("cerca.html #first-div").fadeIn(0);;
-
-        }
-
-    </script>
+    var viewPoint = () => {
+      $("#category, #nearMe, #media, #search").empty();
+      $('#category, #nearMe, #media, #mapid').fadeOut(100);
+      $('#point').slideDown();
+    }
+  </script>
 </head>
 
 <body class="bg-black">
-    <div id="mapid">
+  <div id="mapid">
 
+  </div>
+  <div id="nearMe" style="display:none;">
+
+  </div>
+  <div id="media" style="display:none;">
+
+  </div>
+  <div id="category" style="display:none;">
+
+  </div>
+  <div id="search" style="display:none;">
+
+  </div>
+  <div id="point" style="display:none; background:#fff;height:1500px !important; overflow:scroll;">
+  </div>
+  <nav class="navbar fixed-bottom navbar-dark bg-black">
+
+    <div class="container-fluid color-white text-center">
+      <div class="row display-content">
+
+        <a onclick="viewMap()" class="active" href="#">
+          <div class="col">
+            <ion-icon name="pin" size="large"></ion-icon>
+            <br>
+            <p>WhereMI</p>
+          </div>
+        </a>
+
+        <a onclick="viewNearMe()" href="#">
+          <div class="col">
+            <ion-icon name="ios-map" size="large"></ion-icon>
+            <br>
+            <p>Vicino</p>
+          </div>
+        </a>
+        <a onclick="viewSearch()" href="#">
+          <div class="col">
+            <ion-icon name="ios-search" size="large"></ion-icon>
+            <br>
+            <p>Cerca</p>
+          </div>
+        </a>
+
+        <a onclick="viewCategory()" href="#">
+          <div class="col">
+            <ion-icon name="ios-apps" size="large"></ion-icon>
+            <br>
+            <p>Categorie</p>
+          </div>
+        </a>
+
+        <a onclick="viewProfilo()" href="#">
+          <div class="col">
+            <ion-icon name="ios-contact" size="large"></ion-icon>
+            <br>
+            <p>Profilo</p>
+          </div>
+        </a>
+
+      </div>
     </div>
-    <div id="nearMe" style="display:none;">
+  </nav>
 
-    </div>
-    <div id="media" style="display:none;">
-
-    </div>
-    <div id="category" style="display:none;">
-
-    </div>
-    <div id="search" style="display:none;">
-
-    </div>
-    <nav class="navbar fixed-bottom navbar-dark bg-black">
-
-        <div class="container-fluid color-white text-center">
-            <div class="row display-content">
-
-                <a onclick="viewMap()" class="active" href="#">
-                    <div class="col">
-                        <ion-icon name="pin" size="large"></ion-icon>
-                        <br>
-                        <p>WhereMI</p>
-                    </div>
-                </a>
-
-                <a onclick="viewNearMe()" href="#">
-                    <div class="col">
-                        <ion-icon name="ios-map" size="large"></ion-icon>
-                        <br>
-                        <p>Vicino</p>
-                    </div>
-                </a>
-                <a onclick="viewSearch()" href="#">
-                    <div class="col">
-                        <ion-icon name="ios-search" size="large"></ion-icon>
-                        <br>
-                        <p>Cerca</p>
-                    </div>
-                </a>
-
-                <a onclick="viewCategory()" href="#">
-                    <div class="col">
-                        <ion-icon name="ios-apps" size="large"></ion-icon>
-                        <br>
-                        <p>Categorie</p>
-                    </div>
-                </a>
-
-                <a onclick="viewProfilo()" href="#">
-                    <div class="col">
-                        <ion-icon name="ios-contact" size="large"></ion-icon>
-                        <br>
-                        <p>Profilo</p>
-                    </div>
-                </a>
-
-            </div>
-        </div>
-    </nav>
-
-    <script type="text/javascript">
-        // Funzione per dare classe active a voci di menu -> classe active = colore rosso.
-        $(document).ready(function() {
-            $('.row a').on('click', function() {
-                $('.row a').removeClass('active');
-                $(this).addClass('active');
-            })
-
-        });
-
-    </script>
-    <!-- <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script> -->
+  <script type="text/javascript">
+    // Funzione per dare classe active a voci di menu -> classe active = colore rosso.
+    $(document).ready(function() {
+      $('.row a').on('click', function() {
+        $('.row a').removeClass('active');
+        $(this).addClass('active');
+      })
+    });
+  </script>
 
 </body>
 

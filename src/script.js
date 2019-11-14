@@ -8,13 +8,50 @@ $(document).ready(function() {
 
 //Gestione della Mappa
 $('#mapid').empty()
+
+var mymap
+
+// Route vuoto
+route = L.Routing.control({
+    waypoints: []
+})
+
+// Imposta una route sulla mappa
+var getRoute = (features) => {
+    // Cancello il controllo route vecchio
+    mymap.removeControl(route);
+
+    options = {profile:'mapbox/walking',language:'it'}
+    route = L.Routing.control({
+        waypoints: [
+            L.latLng(latlng),
+            L.latLng(features.geometry.coordinates[1], features.geometry.coordinates[0])
+        ],
+        router: new L.Routing.mapbox('pk.eyJ1IjoibWF0dGlhY2VsdW5vIiwiYSI6ImNrMjYxb3Z1bjE5Y2IzY21xZW1laTZjdHcifQ.-tO_ahzF55IoOpnPtMH0VQ', options),
+        lineOptions: {
+            styles: [{
+                color: '#FF2E55'
+            }]
+        },
+        routeWhileDragging: false,
+        autoRoute: true,
+    }).addTo(mymap);
+}
+
+
+// Rimuove una route dalla mappa
+var removeRoute = () => {
+    mymap.removeControl(route);
+}
+
+
 // Prendo posizione : latitudine e longitudine
 navigator.geolocation.getCurrentPosition(function(location) {
-    var latlng = new L.LatLng(location.coords.latitude, location.coords.longitude);
+    window.latlng = new L.LatLng(location.coords.latitude, location.coords.longitude);
     var lat = location.coords.latitude;
     var long = location.coords.longitude;
     // Setto la mappa
-    var mymap = L.map('mapid', {
+    mymap = L.map('mapid', {
         center: latlng,
         zoom: 14,
         attributionControl: false,
@@ -35,46 +72,6 @@ navigator.geolocation.getCurrentPosition(function(location) {
     }).addTo(mymap);
     // Metto marker su posizione attuale
     var marker = L.marker(latlng).addTo(mymap);
-
-
-
-    // Prova Poligono
-    // var zonaUniversità = {
-    //   "type": "Feature",
-    //   "properties": {},
-    //   "geometry": {
-    //     "type": "Polygon",
-    //     "coordinates": [
-    //       [
-    //         [
-    //           11.354198455810547,
-    //           44.498739907567064
-    //         ],
-    //         [
-    //           11.353490352630615,
-    //           44.497086941433054
-    //         ],
-    //         [
-    //           11.356258392333984,
-    //           44.49626044079391
-    //         ],
-    //         [
-    //           11.356086730957031,
-    //           44.49811239816374
-    //         ],
-    //         [
-    //           11.354198455810547,
-    //           44.498739907567064
-    //         ]
-    //       ]
-    //     ]
-    //   }
-    // };
-    // L.geoJSON(zonaUniversità, {
-    //   pointToLayer: function(feature, latlng) {
-    //     return L.circleMarker(latlng);
-    //   }
-    // }).addTo(mymap);
 
 
     //definisco punti d'interesse
@@ -153,36 +150,6 @@ navigator.geolocation.getCurrentPosition(function(location) {
         ]
     };
 
-
-    // Route vuoto
-    route = L.Routing.control({
-        waypoints: []
-    })
-
-    var getRoute = (features) => {
-        // Cancello il controllo route vecchio
-        mymap.removeControl(route);
-
-        options = {profile:'mapbox/walking',language:'it'}
-        route = L.Routing.control({
-            waypoints: [
-                L.latLng(latlng),
-                L.latLng(features.geometry.coordinates[1], features.geometry.coordinates[0])
-            ],
-             router: new L.Routing.mapbox('pk.eyJ1IjoibWF0dGlhY2VsdW5vIiwiYSI6ImNrMjYxb3Z1bjE5Y2IzY21xZW1laTZjdHcifQ.-tO_ahzF55IoOpnPtMH0VQ', options),
-            lineOptions: {
-                styles: [{
-                    color: '#FF2E55'
-                }]
-            },
-            routeWhileDragging: false,
-            autoRoute: true,
-
-        }).addTo(mymap);
-    }
-
-
-
     // Funzione per riempire Div con id Point : è il div che gestisce la pagina dei punti d'interesse
     var riempiDiv = (features) => {
 
@@ -259,8 +226,10 @@ Ottieni indicazioni
         }
     })
     mymap.addLayer(geojson);
-    //.addTo(mymap);
 });
+
+
+
 var viewCategory = () => {
     $("#nearMe, #media, #search, #point").empty();
     $('#nearMe, #media, #search, #mapid, #point').fadeOut(100);
@@ -292,6 +261,11 @@ var viewPoint = () => {
     $('#category, #nearMe, #media, #mapid').fadeOut(100);
     $('#point').fadeIn();
 }
+
+
+
+
+
 
 
 //GOOGLE LOGIN

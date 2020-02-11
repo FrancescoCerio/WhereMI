@@ -1,93 +1,271 @@
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!DOCTYPE html>
+    <html lang="en" dir="ltr">
 
-    <!-- Google meta for signin verification -->
-    <meta name="google-signin-client_id" content="56234407648-spkh4mn29hh7dl7vf2rrnrbvfstqr8ps.apps.googleusercontent.com">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!--Mobile Web App iPhone-->
-    <meta name="apple-mobile-web-app-capable" content="yes">
+        <!-- Google meta for signin verification -->
+        <meta name="google-signin-scope" content="profile email">
+        <meta name="google-signin-client_id" content="56234407648-4tr8apec1uf082l4kt7o1tklul6k45e6.apps.googleusercontent.com">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <!--Mobile Web App iPhone-->
+        <meta name="apple-mobile-web-app-capable" content="yes">
 
-    <!--My CSS file -->
-    <link rel="stylesheet" type="text/css" href="style.css">
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-    <link rel="shortcut icon" type="image/x-icon" href="docs/images/favicon.ico" />
+        <!--My CSS file -->
+        <link rel="stylesheet" type="text/css" href="style.css">
 
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin=""/>
-    <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js" integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og==" crossorigin=""></script>
+        <link rel="shortcut icon" type="image/x-icon" href="docs/images/favicon.ico" />
 
-    <title>Where am I ?</title>
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin="" />
+        <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js" integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og==" crossorigin=""></script>
 
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <title>Where am I ?</title>
 
-    <!-- GOOGLE login -->
-    <script src="https://apis.google.com/js/platform.js" async defer></script>
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
-    <script src="./script.js" type="text/javascript"></script>
+        <!-- GOOGLE login -->
+        <script src="https://apis.google.com/js/platform.js" async></script>
 
-</head>
+        <script src="./login.js" type="text/javascript"></script>
 
-<body class="bg-black">
+    </head>
 
-<div id="first-div">
-  <div class="uploadMedia color-white"style="width: 100%; height: 100%;">
-    <h1 class="color-white title margin-left"> Aggiungi media </h1>
 
-    <div class="div-left">
-      <button class="btn">
-        <ion-icon class="media-icon" name="cloud-upload"></ion-icon>
-        <br>
-        <p class="box-text">Carica File</p>
-      </button>
-      <input type="file" accept="image/*">
-    </div>
+    <body class="bg-black">
 
-    <div class="div-right">
-      <button class="btn">
-        <ion-icon class="media-icon" name="camera"></ion-icon>
-        <br>
-        <p class="box-text">Apri Fotocamera</p>
-      </button>
-      <input type="file" accept="image/*" capture>
-    </div>
+        <div class="first-div">
 
-  </div>
-  <div class="g-signin2" id="div_tag_id" data-onsuccess="onSignIn"></div>
-  <script>
-    gapi.signin2.render("div_tag_id", {
-        "scope": "profile email openid",
-        "width": 200,
-        "height": 40,
-        "longtitle": true,
-        "theme": "dark",
-        "onsuccess": onSignIn,
-        "onfailure": function (e) {
-            console.warn("Google Sign-In failure: " + e.error);
-        }
-    });
+            <!-- Gestione login utente -->
 
-    function onSignIn(googleUser) {
-      // Useful data for your client-side scripts:
-      var profile = googleUser.getBasicProfile();
-      console.log("ID: " + profile.getId()); // Don't send this directly to your server!
-      console.log('Full Name: ' + profile.getName());
-      console.log('Given Name: ' + profile.getGivenName());
-      console.log('Family Name: ' + profile.getFamilyName());
-      console.log("Image URL: " + profile.getImageUrl());
-      console.log("Email: " + profile.getEmail());
+            <div id="loginCheck" class="col" align="center">
+                <div class="title color-white margin-left center-title h-top">
+                    <h2 id="loginTitle">WhereMI</h2>
+                </div>
 
-      // The ID token you need to pass to your backend:
-      var id_token = googleUser.getAuthResponse().id_token;
-      console.log("ID Token: " + id_token);
-    }
-  </script>
+                <div id="loginContainer" class="col" align="center">
+                    <div id="loginDescription1" class="title color-white margin-left center-title h-top">
+                        <h2>Effettua il login</h2>
+                        <h4>entra nell'Editor</h4>
+                    </div>
+                    <button id="loginButton" type="button" onclick="initLogin()">
+                        <img src="./images/google_logo.png" alt="" />Login with Google
+                    </button>
 
-</div>
-      <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
-</body>
+                </div>
+
+                <div class="col h-top" align="center">
+                    <div class="title color-white margin-left center-title h-top">
+                        <h3>Oppure torna indietro</h3>
+                        <h5>Non potrai aggiungere o modificare luoghi</h5>
+                    </div>
+
+
+                </div>
+            </div>
+
+
+            <!-- Gestione utente Editor dopo che ha effettuato il login -->
+            <div id="loadProfilo">
+                <div class="firstprofilo h-top">
+                    <div class="circle" id="fotogoogle"></div>
+                    <div class="secondprofilo">
+                        <h4 class="text-center color-white" id="name"></h4>
+                        <div class="container mytax">
+                            <div class="row text-center color-white">
+                                <div class="col" id="loadedVideo">
+                                    <h6>Video caricati</h6>
+
+                                </div>
+                                <div class="col" id="feedback">
+                                    <h6>Feedback</h6>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="uploadMedia color-white dimensioni h-top addLuogo">
+
+                    <h3 class="color-white title text-center h-top"> Aggiungi un luogo </h3>
+                    <!-- Finestra pop-up con opzioni di caricamento -->
+                    <div id="loadNewLocation" class="h-bottom">
+                        <form id="inputLocation" name="formPlace" class="color-white h-top">
+                            <div>
+                                <input id="nomeLuogo" class="inputStyle margin-top" type="text" placeholder="Nome del Luogo: es. Piazza Maggiore" name="luogo">
+                            </div>
+                            <div class="margin-top">
+                                <div>
+                                    Scopo
+                                </div>
+                                What <input type="checkbox" id="Check1" value="what" onclick="selectOnlyThis(this.id)" name="What" />
+                                Why <input type="checkbox" id="Check2" value="why" onclick="selectOnlyThis(this.id);showDetail()" name="Why" />
+                                How <input type="checkbox" id="Check3" value="how" onclick="selectOnlyThis(this.id)" name="How" />
+
+                            </div>
+                            <!-- Dettaglio mostrato solo se selezionato WHY come purpose -->
+                            <div id="dettaglio" style="display:none;">
+                                Dettaglio (1-10) :<input id="valoreDettaglio" class="slider" type="range" name="Dettaglio" min="1" max="10" value="1">
+                                <p>Valore: <span id="outputValore"></span></p>
+                            </div>
+                            <div>
+                                <select id="formLanguage" class="inputStyle margin-top" list="Lingua" name="Lingua">
+                                    <option value="" disabled selected>Selezione la Lingua</option>
+                                    <option value="ita">Italiano</option>
+                                    <option value="eng">English</option>
+                                    <option value="fra">Français</option>
+                                </select>
+                            </div>
+                            <div>
+                                <select id="formCategory" class="inputStyle margin-top" list="Categoria" name="Categoria">
+                                    <option value="" disabled selected>Seleziona la Categoria</option>
+                                    <option value="none">Nessuna</option>
+                                    <option value="nat">Natura</option>
+                                    <option value="art">Arte</option>
+                                    <option value="his">Storia</option>
+                                    <option value="flk">Folklore</option>
+                                    <option value="mod">Cultura Moderna</option>
+                                    <option value="rel">Religione</option>
+                                    <option value="cui">Cucina e Drink</option>
+                                    <option value="spo">Sport</option>
+                                    <option value="mus">Musica</option>
+                                    <option value="mov">Film</option>
+                                    <option value="fas">Moda</option>
+                                    <option value="shp">Shopping</option>
+                                    <option value="tec">Tecnologia</option>
+                                    <option value="pop">Cult. Pop. e gossip</option>
+                                    <option value="prs">Esperienze personali</option>
+                                    <option value="oth">altro...</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <select id="formPublic" class="inputStyle margin-top" list="Pubblico" name="Pubblico">
+                                    <option value="" disabled selected>Selezione il Pubblico</option>
+                                    <option value="altroTarget">Generico</option>
+                                    <option value="asilo">Pre-scuola</option>
+                                    <option value="elementare">Scuola Primaria</option>
+                                    <option value="superiore">Scuola Media</option>
+                                    <option value="Specialisti del settore">Specialista del Settore</option>
+                                </select>
+                            </div>
+
+                            <input id="descrizioneLuogo" class="inputStyle margin-top" type="text" placeholder="Aggiungi una breve descrizione" name="descrizioneluogo" value="">
+
+                            <div>
+                                <div class="div-left">
+                                    <input id="file" type="file" accept="video/*" />
+                                    <ion-icon class="media-icon font80" name="cloud-upload"></ion-icon>
+                                    <br>
+                                    <p>Carica File</p>
+                                </div>
+
+                                <div class="div-right">
+                                    <button id="start" type="button" class="btn" data-toggle="modal" data-target="#videoModal" disabled onclick="popoloSecondi()">
+                                        <ion-icon class="media-icon font80" name="camera"></ion-icon>
+                                        <br>
+                                        <p>Apri Fotocamera</p>
+                                    </button>
+                                </div>
+                            </div>
+                            <button id="addPlaceAction" class="playButton margin-top color-white">Carica Luogo</button>
+                        </form>
+                        <button id="logout" class="color-white logoutButton h-top" onclick="signOut();">Logout con Google</button>
+                    </div>
+                </div>
+
+
+                <!-- Modal -->
+                <div class="modal fade" id="videoModal" tabindex="-1" role="dialog" style="height:90%;">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title color-white" id="exampleModalLongTitle" align="center">Carica un video</h5>
+                            </div>
+                            <div class="modal-body">
+                                <button id="record" class="playButton color-white" disabled>Inizia a registrare</button>
+                                <div class="container margin-top">
+                                    <div class="row">
+                                        <div class="col color-white font10">Il video può durare massimo: </div>
+                                        <div class="col color-white font10" id="timeVideo"></div>
+                                        <div class="w-100"></div>
+                                        <div class="col color-white font10" id="minimo"></div>
+                                        <div class="col color-white font10" id="mintimeVideo"></div>
+                                    </div>
+                                </div>
+                                <video id="gum" class="margin-top" playsinline autoplay muted></video>
+                                <video id="recorded" class="margin-top" playsinline autoplay loop></video>
+                                <br>
+
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col">
+                                            <button id="play" class="playButton color-white" disabled>Play</button>
+                                        </div>
+                                        <div class="col">
+                                            <button id="download" class="playButton color-white" disabled>Download</button>
+                                        </div>
+                                        <div class="col">
+                                            <button id="delete" class="playButton color-white" disabled>Delete</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="modal-footer">
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col">
+                                            <button id="eliminaModifiche" type="button" class="deleteButton color-white" data-dismiss="modal">Elimina modifiche</button>
+                                        </div>
+                                        <div class="col">
+                                            <button id="salvaModifiche" type="button" class="playButton color-white">Salva Video</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal fade" id="statusUpload" tabindex="-1" role="dialog" style="height:90%;">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title color-white" id="exampleModalLongTitle" align="center">Stato del caricamento</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="during-upload">
+                                    <p class="color-white"><span id="percent-transferred" class="color-white"></span>% caricamento (<span id="bytes-transferred"></span>/<span id="total-bytes"></span> bytes)</p>
+                                    <progress style="width:90%;" id="upload-progress" max="1" value="0"></progress>
+                                </div>
+                                <div class="post-upload color-white">
+                                    <p>Video caricato con id: <span id="video-id"></span></p>
+                                    <ul id="post-upload-status"></ul>
+                                    <div id="player"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                </div>
+            </div>
+
+        <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+        <script src="./editor.js" type="text/javascript"></script>
+    </body>
+
+    </html>

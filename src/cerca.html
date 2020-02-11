@@ -1,42 +1,152 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!--Mobile Web App iPhone-->
-    <meta name="apple-mobile-web-app-capable" content="yes">
+  <!--Mobile Web App iPhone-->
+  <meta name="apple-mobile-web-app-capable" content="yes">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-    <!--My CSS file -->
-    <link rel="stylesheet" type="text/css" href="style.css">
+  <!--My CSS file -->
+  <link rel="stylesheet" type="text/css" href="style.css">
 
-    <link rel="shortcut icon" type="image/x-icon" href="docs/images/favicon.ico" />
+  <link rel="shortcut icon" type="image/x-icon" href="docs/images/favicon.ico" />
 
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin="" />
-    <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js" integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og==" crossorigin=""></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin="" />
+  <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js" integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og==" crossorigin=""></script>
 
-    <title>Where am I ?</title>
+  <title>Where am I ?</title>
 
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
 
 
 </head>
 
 <body class="bg-black">
 
-    <div id="first-div">
-        <div style="width: 100%; height: 100%;">
-            <h1 class="color-white title margin-left"> Cerca </h1>
-            <input id="input-style" class="margin-left" type="text" name="search" placeholder="Luoghi, audioguide, video e altro ancora">
+  <div class="first-div" style="margin-left : 0px !important; margin-right:0px !important">
+    <div style="padding-left:2%; padding-bottom:5%">
+      <h1 class="color-white" style="font-size:50px"> Cerca </h1>
+      <h6 class="color-gray"> Seleziona le tue clip attraverso i filtri su Purpose, Language, Audience e Distanza </h6>
 
-            <h3 class="color-white h-top margin-left">Vicino a te</h3>
-            <h3 class="color-white h-top margin-left">Di Tendenza</h3>
-
-        </div>
     </div>
-    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+
+    <!-- <div class="h-top">
+            <h3 class="color-white h-top">Di Tendenza</h3>
+            <div class="container" style="padding-left: 0;">
+                <div class="col">
+                    <a href="">Ermete Zacconi</a>
+                </div>
+                <div class="col">
+                    <a href="">Due Torri</a>
+                </div>
+                <div class="col">
+                    <a href="">Parco della Montagnola</a>
+                </div>
+                <div class="col">
+                    <a href="">Stazione</a>
+                </div>
+            </div>
+
+        </div> -->
+    <div class="row" style="background:#222; padding:2%">
+      <div class="col-3">
+
+      <h3 class="color-white h-top">Audience</h3>
+
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" id="inlineCheckbox1" name="audience" value="Generale">
+        <label class="form-check-label color-white" for="inlineCheckbox1">Gen</label>
+      </div>
+
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" id="inlineCheckbox2" name="audience" value="pre">
+        <label class="form-check-label color-white" for="inlineCheckbox2">Pre</label>
+      </div>
+
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" id="inlineCheckbox3" name="audience" value="Elementari">
+        <label class="form-check-label color-white" for="inlineCheckbox3">Elm</label>
+      </div>
+
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" id="inlineCheckbox3" name="audience" value="Medie">
+        <label class="form-check-label color-white" for="inlineCheckbox3">Mid</label>
+      </div>
+
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" id="inlineCheckbox3" name="audience" value="scl">
+        <label class="form-check-label color-white" for="inlineCheckbox3">Scl</label>
+      </div>
+    </div>
+
+      <div class="col-3">
+
+        <h3 class="color-white h-top">Purpose</h3>
+
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" id="inlineCheckbox1" name="purpose" value="Come">
+          <label class="form-check-label color-white" for="inlineCheckbox1">Come</label>
+        </div>
+
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" id="inlineCheckbox2" name="purpose" value="Che cosa">
+          <label class="form-check-label color-white" for="inlineCheckbox2">Che cosa</label>
+        </div>
+
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" id="inlineCheckbox3" name="purpose" value="Perché">
+          <label class="form-check-label color-white" for="inlineCheckbox3">Perché</label>
+        </div>
+
+      </div>
+
+
+  <div class="col-2">
+
+  <h3 class="color-white h-top">Language</h3>
+
+  <div class="form-check form-check-inline">
+    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" name="language" value="Italiano">
+    <label class="form-check-label color-white" for="inlineCheckbox1">Italiano</label>
+  </div>
+
+  <div class="form-check form-check-inline">
+    <input class="form-check-input" type="checkbox" id="inlineCheckbox2" name="language" value="English">
+    <label class="form-check-label color-white" for="inlineCheckbox2">English</label>
+  </div>
+
+
+</div>
+
+  <div class="col-2">
+
+  <h3 class="color-white h-top">Distanza</h3>
+  <div class="d-flex my-4">
+    <form class="range-field w-25">
+      <input type="range" name="slider" id="slider" value="0" min="0" max="3000" oninput="ageOutputId.value = slider.value">
+      <output class="color-white" name="ageOutputName" id="ageOutputId">0</output><span class="color-white">m</span>   </form>
+  </div>
+  <span id="valRange" class="color-white"></span>
+
+</div>
+
+<div class="col-2" style="margin-top:2%">
+<button id="srcBtn" type="button" class="btn btn-secondary" onclick="filterClips()" >Mostra i risultati</button>
+</div>
+    </div>
+
+
+  </div>
+  <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
 </body>
+
+</html>

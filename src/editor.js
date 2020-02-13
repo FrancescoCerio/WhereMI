@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    creaVideo();
+  creaVideo();
 });
 
 var exportBlobs;
@@ -27,6 +27,9 @@ function creaVideo() {
     const deleteButton = document.querySelector('button#delete');
     const gumVideo = document.querySelector('video#gum');
     const eliminaModifiche = document.querySelector('button#eliminaModifiche');
+    const salvaModifiche = document.querySelector('button#salvaModifiche');
+    const anteprima = document.querySelector('video#anteprima');
+    const anteprimaVideo = document.querySelector('div#anteprimaVideo');
 
 
     /*Controllo i secondi della durata del video*/
@@ -106,6 +109,7 @@ function creaVideo() {
         playButton.disabled = false;
         downloadButton.disabled = false;
         deleteButton.disabled = false;
+        salvaModifiche.disabled = false;
     }
 
     recordButton.addEventListener('click', () => {
@@ -211,6 +215,8 @@ function creaVideo() {
         recordButton.disabled = false;
         downloadButton.disabled = true;
         playButton.disabled = true;
+        salvaModifiche.disabled = true;
+        recordedBlobs = [];
         //recordedVideo.style.display = none;
     })
 
@@ -252,9 +258,29 @@ function creaVideo() {
     }
 
     salvaModifiche.addEventListener('click', () => {
-        stream.getTracks().forEach(track => track.stop());
         //mediaRecorder.stop();
+        stream.getTracks().forEach(track => track.stop());
+        recordedVideo.pause();
+        recordedVideo.removeAttribute('src');
+        recordedVideo.load();
+        recordedVideo.style.display = "none";
+        deleteButton.disabled = true;
+        recordButton.disabled = false;
+        downloadButton.disabled = true;
+        playButton.disabled = true;
+        salvaModifiche.disabled = true;
         gumVideo.style.display = 'none';
+        //jQuery.noConflict();
+        $('#videoModal').hide();
+        anteprimaVideo.style.display = "block";
+        const superBuffer = new Blob(recordedBlobs, {
+            type: 'video/mp4'
+        });
+        anteprima.src = null;
+        anteprima.srcObject = null;
+        gumVideo.style.display = "none";
+        anteprima.src = window.URL.createObjectURL(superBuffer);
+        anteprima.controls = true;
     });
 
     eliminaModifiche.addEventListener('click', () => {
@@ -272,6 +298,8 @@ function creaVideo() {
         recordButton.disabled = false;
         downloadButton.disabled = true;
         playButton.disabled = true;
+        salvaModifiche.disabled = true;
+        recordedBlobs = [];
     });
 
     startButton.addEventListener('click', async () => {
@@ -306,22 +334,11 @@ function validateForm() {
 		let nomeluogo = document.forms["formPlace"]["luogo"].value;
 		let categoria = document.forms["formPlace"]["Categoria"].value;
 		let pubblico = document.forms["formPlace"]["Pubblico"].value;
-		var dati = $("#inputLocation").serializeArray();
-		var lang = $("#formLanguage").val();
+        let lang = document.forms["formPlace"]["formLanguage"].value;
 
-		if ((nomeluogo == "") || (categoria == "") || (pubblico == "")) {
+		if ((nomeluogo == "") || (categoria == "") || (pubblico == "")||(lang == "")) {
 				isValidDescription = false;
-				alert("Devi inserire il nome del luogo, scegliere una categoria e selezionare un publico.");
-		}
-
-		if (dati[1] === null) {
-				isValidDescription = false;
-				alert("Selezionare un purpose tra WHAT - WHY - HOW. Se selezioni il purpose WHY, seleziona il livello di dettaglio");
-		}
-
-		if (lang === null) {
-				isValidDescription = false;
-				alert("Selezionare una lingua");
+				alert("Per caricare un nuovo luogo devi inserire il nome del luogo, scegliere una categoria, selezionare un publico e scegliere una lingua.");
 		}
 
 		return isValidDescription;

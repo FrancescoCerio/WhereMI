@@ -21,7 +21,11 @@ var checkbox_language = [];
 var range_slider = 0;
 var filteredClips = [];
 var filteredList = '';
+var io = L.icon({
+    iconUrl: 'io.png',
 
+    iconSize:     [25, 25], // size of the icon
+});
 
 // Route vuoto
 route = L.Routing.control({
@@ -65,7 +69,7 @@ var initMap = () => {
     $('#mapid').empty()
     // Setto la mappa
     map = L.map('mapid', {
-        center: [44.5075, 11.3514],
+        center: [44.5075, 11.35],
         zoom: 14,
         attributionControl: false,
         zoomControl: false
@@ -90,7 +94,7 @@ var initMap = () => {
     myPositionMarker = new L.Marker([0,0], {
         draggable: true,
         autoPan: true,
-
+        icon: io,
 
 
     }).addTo(map);
@@ -115,10 +119,6 @@ var initMap = () => {
     });
 
 
-
-
-
-
     // Impostazione della mappa
     if (navigator.geolocation){
         navigator.geolocation.getCurrentPosition(function (location) {
@@ -141,7 +141,7 @@ var initMap = () => {
             console.log("Geolocalizzazione non attiva");
             window.geolocation = false;
             // latlnf di default
-            window.latlng = [44.4938100, 11.3458600];
+            window.latlng = [44.4938100, 11.3428600];
             window.lat = latlng[0];
             window.long = latlng[1];
             myPositionMarker.setLatLng(latlng);
@@ -226,9 +226,9 @@ var searchClips = () => {
 
     var query = OpenLocationCode.encode(markerLat,markerLng, 6);
     // Chiave YouTube
-    var apikey = "AIzaSyALn6wiAEinREG57kOna0dYhows7QZTeXg";
+    var apikey = "AIzaSyANz35j1DLXzxpDO_q631hG4cFUn8vxcKA";
      // Limite al numero dei risultati
-	var maxResults = 10;
+	var maxResults = 30;
 	request = "https://www.googleapis.com/youtube/v3/search?part=snippet&q=" + query + "&key=" + apikey + "&maxResults=" + maxResults;
 
     /* Estendo la classe CircleMarker per poter salvare info extra sul luogo */
@@ -254,6 +254,11 @@ var searchClips = () => {
             // Per pulire titoli delle clip
             if (titleFinal.includes("#")) titleFinal = titleFinal.split("#")[0];
             if (titleFinal.includes("-")) titleFinal = titleFinal.split("-")[0];
+            if (/([23456789C][23456789CFGHJMPQRV][23456789CFGHJMPQRVWX].*$)/.test( titleFinal )) {
+                console.log(" Plus code nel titolo della clip: "+ titleFinal + " rifiutato");
+                return true;
+            };
+
 
             // YouTube Video ID
             var clipID = clipList[index].id.videoId;
@@ -262,7 +267,7 @@ var searchClips = () => {
             var clipDescription = clipList[index].snippet.description;
 			var clipTitle = clipList[index].snippet.title;
             if (clipDescription.split(":").length < 6) {
-				console.log(" Clip: " + clipTitle + ": metadati non compatibili");
+				console.log(" Clip: '" + clipTitle + "', videoID '"+ clipID +"' : metadati non compatibili");
 				return true;
 			}
 
@@ -449,7 +454,7 @@ var searchClips = () => {
                 imgwiki = {img:''}
                 searchImgWiki(titleFinal);
 
-                clipCard = `<div class="col-4" >
+                clipCard = `<div class="col-12 col-sm-6 space col-md-4 col-lg-4 col-xl-4" >
                             <div id="cardID" class="card cardcontainer" style="background-color:#555 ;background-image:url(` + imgwiki.img +  `); background-size:cover">
                             <div class="overlay">
                             <div class="card-body">
@@ -458,12 +463,12 @@ var searchClips = () => {
                             <p class="card-text color-white">Distanza: <b>` + parseInt(getDistance(latlng, clipPosition)) + `m</b></p>
                             <p class="card-text color-white">Audiance: <b>` + audienceFinal + `</b></p>
                             <p class="card-text color-white">Purpose: <b>` + purposeFinal + `</b></p>
-                            <a id="play`+ clipID +`" href="#" onclick="playAudio(\'` + clipID+ `\');">
+                            <span id="play`+ clipID +`"  onclick="playAudio(\'` + clipID+ `\');">
                               <ion-icon name="play-circle" style="font-size:25px;color:#fff;margin-right:10px"></ion-icon>
-                            </a>
-                            <a id="pause`+ clipID +`" class="hide"href="#" onclick="stopAudio(\'` + clipID+ `\');">
+                            </span>
+                            <span id="pause`+ clipID +`" class="hide" onclick="stopAudio(\'` + clipID+ `\');">
                               <ion-icon name="pause"  style="font-size:25px;color:#fff;margin-right:10px"></ion-icon>
-                            </a>
+                            </span>
                             <a href="#"  onclick="fromCard(); viewDetail(\'`+e +'\',\'' + clipID+ '\',\'' + titleFinal + '\',\'' + purposeFinal+ '\',\'' +contentFinal+ '\',\'' +languageFinal+ '\',\'' + audienceFinal+ '\',\'' + descriptionFinal+'\',\'' + detailFinal+`\')" class="dettagli card-link">Dettagli</a>
                             <a href="#" onclick="viewMap(); getRoute(`+ e +`)" class="card-link indicazioni">Indicazioni</a>
                             </div></div></div></div>
@@ -513,22 +518,23 @@ var viewDetail = (pos, clipID, titleFinal, purposeFinal, contentFinal, languageF
       <header id="imgHead" style="height: 20vh;min-height: 500px; background-size: cover;background-position: center;background-repeat: no-repeat;">
       <div class="container h-100"><div class="row h-100 align-items-center"><div class="col-12 text-center">
       <h1 style="font-size:70px; color:#fff;">` + titleFinal + `</h1>
-      <p class="lead" style="color:#fff;font-size:20px;"> <b>Language: </b>` + languageFinal + `</p>
+      <p class="lead" style="color:#fff;font-size:20px;"> ` + descriptionFinal + `</p>
+      <p class="lead" style="color:#fff"font-size:10px>  <b>` + languageFinal + `</b></p>
       </div></div></div></header>
       <!-- Page Content -->
       <section class="py-5">
       <div class="container">
       `+`
-      <h2 style="color:#fff;">Informazioni Clip</h2>
-      <p class="lead" style="color:#fff"> <b>Purpose: </b>` + purposeFinal + `</p>
-      <p class="lead" style="color:#fff"> <b>Content: </b>` + contentFinal + `</p>
-      <p class="lead" style="color:#fff"> <b>Audiance: </b>` + audienceFinal + `</p>
-      <p class="lead" style="color:#fff"> <b>Detail: </b>` + detailFinal + `</p>
-      <p class="lead" style="color:#fff"> <b>Description: </b>` + descriptionFinal + `</p>
-      <a href="#" style="text-decoration:none; color:#FF2E55; font-size:20px;" class="readDescription">Leggi descrizione <br><br></a>
-      <a href="#" style="text-decoration:none; color:#FF2E55; font-size:20px;" class="searchWiki">Cerca su Wikipedia <br><br></a>
-      <a href="#" style="text-decoration:none; color:#FF2E55; font-size:20px;" class="playClipButton">Riproduci Clip <br><br></a>
-      <a href="#" style="text-decoration:none; color:#FF2E55; font-size:20px;" class="indicazioni">Ottieni indicazioni</a>
+      <h2 style="color:#fff;"> Informazioni Clip </h2>
+      <p class="lead" style="color:#fff;font-size;"> <b> Description: </b>` + descriptionFinal + `</p>
+      <p class="lead" style="color:#fff"> <b> Content: </b>` + contentFinal + `</p>
+      <p class="lead" style="color:#fff"> <b> Purpose: </b>` + purposeFinal + `</p>
+      <p class="lead" style="color:#fff"> <b> Audiance: </b>` + audienceFinal + `</p>
+      <p class="lead" style="color:#fff"> <b> Detail: </b>` + detailFinal + `</p>
+      <a href="#" style="text-decoration:none; color:#FF2E55; font-size:20px;" class="readDescription"> <ion-icon name="mic"></ion-icon> Ascolta descrizione <br><br></a>
+      <a href="#" style="text-decoration:none; color:#FF2E55; font-size:20px;" class="searchWiki"> <ion-icon name="book"></ion-icon> Cerca su Wikipedia <br><br></a>
+      <a href="#" style="text-decoration:none; color:#FF2E55; font-size:20px;" class="playClipButton"> <ion-icon name="play"></ion-icon> Riproduci Clip <br><br></a>
+      <a href="#" style="text-decoration:none; color:#FF2E55; font-size:20px;" class="indicazioni"> <ion-icon name="navigate"></ion-icon> Ottieni indicazioni</a>
       </div></section>`;
 
     $("#point").html(myPoint);
@@ -616,9 +622,14 @@ var playNearMe = (count) => {
     $('#pause').removeClass('hide');
 }
 
+var playClip = {clip: ''};
 //quando premi play
 var playAudio = (e) =>{
-    $('#mapid').append(`<iframe type="text/html" style="width:100%;height:600px; display:none;"  src="https://www.youtube.com/embed/`+e+`?autoplay=1" allow='autoplay' frameborder=”0″></iframe>`);
+
+    playClip.clip = e;
+
+    play();
+
     $(`#play`+ e).addClass('hide');
     $('#pause'+e).removeClass('hide');
     $(`#play`).addClass('hide');
@@ -628,11 +639,11 @@ var playAudio = (e) =>{
 
 //quando premi pausa
 var stopAudio = (e) =>{
+    stopVideo();
     $('#play').removeClass('hide');
     $('#pause').addClass('hide');
     $(`#play`+ e).removeClass('hide');
     $('#pause'+ e).addClass('hide');
-    $('iframe').attr('src', '');
 }
 
 
@@ -663,6 +674,10 @@ var searchDescWiki = (name) => {
     name = titleCase(name);
     // Sostituisco gli spazi con underscore
     name = name.replace(/ /g,"_");
+
+    $.ajaxSetup({
+        "error":function() { console.log(" Pagina Wikipedia " + name  +" non trovata");  }
+    });
     $.getJSON("https://it.wikipedia.org/api/rest_v1/page/summary/" + name , function (data) {
         str = JSON.stringify (data);
         if (str.includes("not_found") || str == "")
@@ -692,16 +707,17 @@ var searchImgWiki = (name) => {
     // Sostituisco gli spazi con underscore
     name = name.replace(/ /g,"_");
     $.ajaxSetup({
-    async: false
-});
+        async: false,
+        "error":function() { console.log(" Pagina Wikipedia " + name  +" non trovata");  }
+    });
+
     $.getJSON("https://it.wikipedia.org/api/rest_v1/page/summary/" + name , function (data) {
         str = JSON.stringify (data);
         if (str.includes("not_found") || str == "")
             alert(" Pagina wikipedia non trovata");
         else {
-         imgwiki.img = data.originalimage.source;
-
-       }
+            imgwiki.img = data.originalimage.source;
+        }
     });
 }
 // Ricerca di immagini per punti di interesse
@@ -825,7 +841,7 @@ var filterClips = () =>{
 
 
     //inizio a creare lista risultati
-    $('#search').append('<div id="listClips" class="list-group" style="margin:5%"></div>');
+    $('#search').append('<div id="listClips" class="list-group" style="margin:5%;"></div>');
 
     var b=0;
 
@@ -833,10 +849,12 @@ var filterClips = () =>{
       pos = '['+filteredClips[b].latlng.latitudeCenter+ ',' + filteredClips[b].latlng.longitudeCenter +']';
       filteredList += `
       <div style=" margin:1% 0px;padding: 5% auto; "
+
       <a href="#" onclick="fromCard();viewDetail(\'`+ pos +'\',\'' + filteredClips[b].clip+ '\',\'' + filteredClips[b].title + '\',\'' + filteredClips[b].purpose+ '\',\'' +filteredClips[b].content+ '\',\'' +filteredClips[b].language+ '\',\'' + filteredClips[b].audience+ '\',\'' + filteredClips[b].description+'\',\'' + filteredClips[b].detail+`\')" class="list-group-item list-group-item-action flex-column align-items-start bg-black color-white">
-          <div class="d-flex w-100 justify-content-between">
-            <h2 class="mb-1">`+filteredClips[b].title +`</h2>
+          <div class=" w-100 justify-content-between">
           <small> Purpose: <b>`+filteredClips[b].purpose +`</b> | Audience: <b>`+filteredClips[b].audience +`</b> | Language: <b>`+filteredClips[b].language +` </b>| Distanza: <b>`+parseInt(filteredClips[b].distance) +`m</b></small>
+
+            <h2 class="mb-1">`+filteredClips[b].title +`</h2>
           </div>
           <p class="mb-1">`+filteredClips[b].description +`</p>
           <small style="color:#FF2E55">Clicca per dettagli</small>

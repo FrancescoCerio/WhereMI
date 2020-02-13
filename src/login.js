@@ -12,10 +12,7 @@ var imageLoaded = false;
 
 /* Variabili per i Cookie*/
 var videoCookie;
-var feedCookie;
 var uploadedVideo;
-var feedback;
-var hasVisited = false;
 var firstCall = false;
 
 
@@ -112,59 +109,97 @@ var refreshValues = function () {
 /* Gestione Cookies per User Info */
 
 function createCookie(key, value, date) {
-    let expiration = new Date(date).toUTCString();
-    let cookie = escape(key) + "=" + escape(value) + ";expires=" + expiration + ";";
+    var expiration = new Date(date).toUTCString();
+    var cookie = key + "=" + value + ";expires=" + expiration + ";";
+    //Aggiungo il valore per il numero di video caricati impostato a 0 di default
     document.cookie = cookie;
     console.log(cookie);
     console.log("Creating new cookie with key: " + key + " value: " + value + " expiration: " + expiration);
 }
 
 function getCookie(name) {
-    let key = name + "=";
-    let cookies = document.cookie.split(';');
-    for (let i = 0; i < cookies.length; i++) {
-        let cookie = cookies[i];
+    var key = name + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var cookies = decodedCookie.split(';');
+
+    for (var i = 0; i < cookies.length; i++) {
+        var cookie = cookies[i];
         while (cookie.charAt(0) === ' ') {
-            cookie = cookie.substring(1, cookie.length);
+            cookie = cookie.substring(1);
         }
         if (cookie.indexOf(key) === 0) {
             return cookie.substring(key.length, cookie.length);
         }
     }
-    return null;
+    return "";
+}
+
+/* Se il cookie esiste ritorno true - false altrimenti */
+function existCookie(cname) {
+	var name = cname + "=";
+	var decodedCookie = decodeURIComponent(document.cookie);
+	var cookieArray = decodedCookie.split(';');
+	var flag = false;
+
+	//controllo tutti i cookie, se trovo il cookie cname
+	for (var i = 0; i < cookieArray.length; i++) {
+
+		var current = cookieArray[i];
+
+		while (current.charAt(0) == ' ') {
+			current = current.substring(1);
+		}
+
+		if (current.indexOf(name) == 0) {
+			flag = true;
+		}
+	}
+	console.log(flag);
+	return flag;
 }
 
 /* Verifico se l'utente che ha fatto login ha già visitato in precedenza il sito */
-function checkSession() {
-    var c = getCookie("visited");
-    if (c === "yes") {
-        hasVisited = true;
-    } else {
-        createCookie("visited", "yes", Date.UTC(2020, 8, 1));
-    }
-}
-
 function startCookies() {
-    checkSession();
-    if (!hasVisited) {
-        createCookie("uploadedVideo", "0", Date.UTC(2020, 8, 1));
-        createCookie("feedback", "0", Date.UTC(2020, 8, 1));
-    }
-    uploadedVideo = getCookie("uploadedVideo");
-    feedback = getCookie("feedback");
+  var currentCookie = profile.getEmail();
+	if (!existCookie(currentCookie)) {
+    //Creo il cookie per l'utente che non aveva effettuato il login in passato e imposto il valore per i video caricati a 0
+    uploadedVideo = 0;
+    createCookie(currentCookie, uploadedVideo, Date.UTC(2020, 8, 1));
+	} else {
+    uploadedVideo = getCookie(profile.getEmail());
+  }
 }
 
-/* Da chiamare quando l'utente carica un video o lascia un nuovo feedback */
-function updateCookie(name) {
-    let newCookie = (+getCookie(name) || 0) + 1;
-    return newCookie;
+/* Da chiamare quando l'utente carica un video */
+function updateCookie(cname) {
+    var name = cname + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var cookieArray = decodedCookie.split(';');
+    var cookieValue;
+
+    for (var i = 0; i < cookieArray.length; i++) {
+
+  		var current = cookieArray[i];
+
+  		while (current.charAt(0) == ' ') {
+  			current = current.substring(1);
+  		}
+
+  		if (current.indexOf(name) == 0) {
+        uploadedVideo = (+getCookie(cname) || 0) + 1;
+        document.cookie = cname + "=" + uploadedVideo + ";expires=" + Date.UTC(2020, 8, 1) + ";";
+        getStatistics();
+      }
+  	}
+
+
 }
 
 /* Gestione User Info */
 
 function getStatistics() {
-    $("#loadedVideo").append(uploadedVideo);
-    $("#feedback").append(feedback);
+  $("#loadedVideo").empty();
+  $("#loadedVideo").append(uploadedVideo);
 }
 
 /* Uso una funzione per decidere se il checkbox WHY è stato selezionato */
@@ -194,7 +229,7 @@ $(document).ready(function () {
 
 
 var viewCategory = () => {
-    $("#nearMe, #media, #search, #point").empty();
+    $("#nearMe,#media, #search, #point").empty();
     $('#nearMe, #media, #search, #mapid, #point, #controls').fadeOut(100);
     $('#category').load("categorie.html .first-div").fadeIn(0);
     $('#btnNearMe').attr('onClick', 'viewNearMe();');
@@ -244,20 +279,17 @@ var viewProfilo = async () =>  {
     if (!isLogged) {
         $('#media').load("profilo.html #loginCheck").fadeIn(0);
 
+
     } else {
         $('#media').load("profilo.html #loadProfilo", await showUser).fadeIn(0);
-        if (!firstCall) {
-            $(function () {
                 $('body').append('<script defer src="./editor.js" type="text/javascript"></script>');
                 $('body').append('<script defer src="./cors_upload.js" type="text/javascript"></script>');
                 $('body').append('<script defer src="./uploadVideo.js" type="text/javascript"></script>');
 
-                firstCall = true;
-            });
         }
     }
 
-}
+
 
 var viewSearch = () => {
     $("#category, #nearMe, #media, #point").empty();
@@ -291,6 +323,7 @@ function selectOnlyThis(id) {
     }
     document.getElementById(id).checked = true;
     document.getElementById("start").disabled = false;
+    document.getElementById("scompari").style.display = "none";
 }
 
 

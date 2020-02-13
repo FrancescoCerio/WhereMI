@@ -63,8 +63,6 @@ var UploadVideo = function() {
 
 function generateDescription(){
   var descrizione;
-  var hasCheckedWhy = false;
-  updatePosition();
   var lat = myPositionMarker.getLatLng().lat;
   var lng = myPositionMarker.getLatLng().lng;
 
@@ -74,24 +72,27 @@ function generateDescription(){
   var dati = $("#inputLocation").serializeArray();
   var lang = $("#formLanguage").val();
   var category = $('#formCategory').val();
-  //var public = $('#formPublic').val();
+  var pubblico = $('formPublic').val();
   var descrizioneluogo = $('#descrizioneLuogo').val();
 
-  descrizione = olc1 + "-" + olc2 + "-" + olc + ":" + dati[1].value + ":" + lang + ":";
+  descrizione = olc1 + "-" + olc2 + "-" + olc + ":" + dati[1].value + ":" + lang;
 
   if(category != null){
-    descrizione += category + ":";
+    descrizione += ":" + category;
   }
 
-  //if(public != null){
-  //  descrizione += public;
-  //}
+  if(pubblico != null){
+    descrizione += ":" + pubblico;
+  }
 
   if(dati[1].name === "Why"){
-    descrizione += $('#valoreDettaglio').val() + ":";
+    descrizione += ":"+ $('#valoreDettaglio').val();
+  } else {
+    descrizione += ":" + ":";
   }
+
   if(descrizioneluogo != null){
-    descrizione +=  descrizioneluogo + ":";
+    descrizione += "#"+ descrizioneluogo;
   }
   return descrizione;
 }
@@ -110,10 +111,7 @@ UploadVideo.prototype.ready = function(accessToken) {
     callback: function(response) {
       if (response.error) {
         console.log(response.error.message);
-      } /*else {
-        $('.pre-sign-in').hide();
-        $('.post-sign-in').show();
-      }*/
+      }
     }.bind(this)
   });
   $('#addPlaceAction').on("click", this.handleUploadClicked.bind(this));
@@ -191,6 +189,7 @@ UploadVideo.prototype.uploadFile = function(file) {
   // This won't correspond to the *exact* start of the upload, but it should be close enough.
   this.uploadStartTime = Date.now();
   uploader.upload();
+  updateCookie(profile.getEmail());
 };
 
 UploadVideo.prototype.handleUploadClicked = function() {
@@ -205,7 +204,6 @@ UploadVideo.prototype.handleUploadClicked = function() {
     }else if($('#file').get(0).files[0] != undefined){
       this.uploadFile($('#file').get(0).files[0]);
     }
-
   }
 }
 

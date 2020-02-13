@@ -841,7 +841,7 @@ var filterClips = () =>{
 
 
     //inizio a creare lista risultati
-    $('#search').append('<div id="listClips" class="list-group" style="margin:5%;"></div>');
+    $('#search').append('<div id="listClips" class="list-group" style="margin:5%; padding-bottom:60px"></div>');
 
     var b=0;
 

@@ -24,8 +24,8 @@ function initLogin() {
 function clientLogin() {
 
     gapi.client.init({
-        apiKey: 'AIzaSyAAjq5s_Bz-X2xC24WZlE-dWFVeUbYg6xQ',
-        clientId: '971886468872-f48b7vr2fih5apam97sep6e019cv6cui.apps.googleusercontent.com',
+        apiKey: '',
+        clientId: '',
         discoveryDocs: DISCOVERY_DOCS,
         scope: SCOPES
     }).then(async function () {

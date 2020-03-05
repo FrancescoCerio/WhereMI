@@ -1,10 +1,9 @@
 /* Google login functions */
-var auth2; // l'oggetto per effettuare il login
 var googleUser; // l'utente corrente
 var GoogleAuth;
 
 var DISCOVERY_DOCS = ['https://www.googleapis.com/discovery/v1/apis/drive/v3/rest'];
-var SCOPES = 'https://www.googleapis.com/auth/youtube.upload https://www.googleapis.com/auth/youtube';
+var SCOPES = 'https://www.googleapis.com/auth/youtube.upload https://www.googleapis.com/auth/youtube https://www.googleapis.com/auth/youtube.force-ssl';
 var isLogged = false; //Uso una variabile per controllare se l'utente ha già effettuato l'accesso
 var profile;
 var scriptLoaded = false;
@@ -175,7 +174,6 @@ function updateCookie(cname) {
     var name = cname + "=";
     var decodedCookie = decodeURIComponent(document.cookie);
     var cookieArray = decodedCookie.split(';');
-    var cookieValue;
 
     for (var i = 0; i < cookieArray.length; i++) {
 
@@ -269,7 +267,7 @@ var viewProfilo = async () =>  {
     /* Funzione per aggiungere lo script Google per caricare il pulsante di login */
     if (!scriptLoaded) {
         $(function () {
-            $('head').append('<script defer src="https://apis.google.com/js/api.js" onload="this.onload=function(){};initLogin();" onreadystatechange="if(this.readyState === "complete") this.onload()"></script>');
+          $('head').append('<script defer src="https://apis.google.com/js/api.js" onload="this.onload=function(){};initLogin();" onreadystatechange="if(this.readyState === "complete") this.onload()"></script>');
             scriptLoaded = true;
         });
     }
@@ -322,8 +320,6 @@ function selectOnlyThis(id) {
         document.getElementById("Check" + i).checked = false;
     }
     document.getElementById(id).checked = true;
-    document.getElementById("start").disabled = false;
-    document.getElementById("scompari").style.display = "none";
 }
 
 
@@ -342,4 +338,14 @@ function removeUser() {
     $('.smallImageStyle').remove();
     $('#ProfileIcon').prepend('<ion-icon id="IconToRemove" name="ios-contact" size="large"></ion-icon>');
     imageLoaded = false;
+}
+
+function salvo() {
+    var storeLingua = document.getElementById("formLanguage").value;
+    var storeCategoria = document.getElementById("formCategory").value;
+    var storePubblico = document.getElementById("formPublic").value;
+
+    localStorage.setItem("lingua", storeLingua);
+    localStorage.setItem("categoria", storeCategoria);
+    localStorage.setItem("pubblico", storePubblico);
 }

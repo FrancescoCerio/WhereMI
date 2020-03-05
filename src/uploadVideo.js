@@ -72,7 +72,7 @@ function generateDescription(){
   var dati = $("#inputLocation").serializeArray();
   var lang = $("#formLanguage").val();
   var category = $('#formCategory').val();
-  var pubblico = $('formPublic').val();
+  var pubblico = $('#formPublic').val();
   var descrizioneluogo = $('#descrizioneLuogo').val();
 
   descrizione = olc1 + "-" + olc2 + "-" + olc + ":" + dati[1].value + ":" + lang;
@@ -155,7 +155,6 @@ UploadVideo.prototype.uploadFile = function(file) {
         message = errorResponse.error.message;
       } finally {
         console.log('errore');
-        alert(message);
       }
     }.bind(this),
     onProgress: function(data) {

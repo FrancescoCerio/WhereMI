@@ -44,12 +44,12 @@
 
             <!-- Gestione login utente -->
 
-            <div id="loginCheck" class="col" align="center">
+            <div id="loginCheck" class="col" style="text-align:center;">
                 <div class="title color-white margin-left center-title h-top">
                     <h2 id="loginTitle">WhereMI</h2>
                 </div>
 
-                <div id="loginContainer" class="col" align="center">
+                <div id="loginContainer" class="col" style="text-align:center;">
                     <div id="loginDescription1" class="title color-white margin-left center-title h-top">
                         <h2>Effettua il login</h2>
                         <h4>entra nell'Editor</h4>
@@ -60,7 +60,7 @@
 
                 </div>
 
-                <div class="col h-top" align="center">
+                <div class="col h-top" style="text-align:center;">
                     <div class="title color-white margin-left center-title h-top">
                         <h3>Oppure torna indietro</h3>
                         <h5>Non potrai aggiungere o modificare luoghi</h5>
@@ -92,18 +92,34 @@
 
                 <div class="uploadMedia color-white dimensioni h-top addLuogo">
 
-                    <h3 class="color-white title text-center h-top"> Aggiungi un luogo </h3>
+                    <h3 class="color-white title text-center h-top">Aggiungi un luogo</h3>
                     <!-- Finestra pop-up con opzioni di caricamento -->
                     <div id="loadNewLocation" class="h-bottom">
+                      <div>
+                          <div class="div-left stilediv">
+                              <input id="file" type="file" accept="video/*" />
+                              <ion-icon class="media-icon font80 hh-top" name="cloud-upload"></ion-icon>
+                              <br>
+                              <p>Carica File</p>
+                          </div>
+
+                          <div class="div-right">
+                              <button id="start" type="button" class="stilediv" data-toggle="modal" data-target="#videoModal" data-backdrop="static">
+                                  <ion-icon class="media-icon font80 hh-top" name="camera"></ion-icon>
+                                  <br>
+                                  <p>Apri Fotocamera</p>
+                              </button>
+                          </div>
+                      </div>
                         <form id="inputLocation" name="formPlace" class="color-white h-top">
                             <div>
-                                <input id="nomeLuogo" class="inputStyle margin-top" type="text" placeholder="Nome del Luogo: es. Piazza Maggiore" name="luogo">
+                                <input id="nomeLuogo" class="inputStyle h-top" type="text" placeholder="Nome del Luogo: es. Piazza Maggiore" name="luogo">
                             </div>
                             <div class="margin-top">
                                 <div>
-                                    Scopo <span id="scompari" class="font10"> *devi selezionare uno scopo per aprire la fotocamera</span>
+                                    Scopo
                                 </div>
-                                Che cosa <input type="checkbox" id="Check1" value="what" onclick="selectOnlyThis(this.id)" name="What" />
+                                Che cosa <input type="checkbox" id="Check1" value="what" checked onclick="selectOnlyThis(this.id)" name="What" />
                                 Perché <input type="checkbox" id="Check2" value="why" onclick="selectOnlyThis(this.id);showDetail()" name="Why" />
                                 Come <input type="checkbox" id="Check3" value="how" onclick="selectOnlyThis(this.id)" name="How" />
 
@@ -113,18 +129,16 @@
                                 Dettaglio (1-10) :<input id="valoreDettaglio" class="slider" type="range" name="Dettaglio" min="1" max="10" value="1">
                                 <p>Valore: <span id="outputValore"></span></p>
                             </div>
-                            <div>
-                                <select id="formLanguage" class="inputStyle margin-top" list="Lingua" name="Lingua">
-                                    <option value="" disabled selected>Selezione la Lingua</option>
-                                    <option value="ita">Italiano</option>
+                            <div><p class="margin-bottom">Lingua</p>
+                                <select id="formLanguage" class="inputStyle h-bottom" list="Lingua" name="Lingua" onchange="salvo()">
+                                    <option value="ita" selected>Italiano</option>
                                     <option value="eng">English</option>
                                     <option value="fra">Français</option>
                                 </select>
                             </div>
-                            <div>
-                                <select id="formCategory" class="inputStyle margin-top" list="Categoria" name="Categoria">
-                                    <option value="" disabled selected>Seleziona la Categoria</option>
-                                    <option value="none">Nessuna</option>
+                            <div><p class="margin-bottom">Categoria</p>
+                                <select id="formCategory" class="inputStyle h-bottom" list="Categoria" name="Categoria" onchange="salvo()">
+                                    <option value="none" selected>Nessuna</option>
                                     <option value="nat">Natura</option>
                                     <option value="art">Arte</option>
                                     <option value="his">Storia</option>
@@ -144,42 +158,26 @@
                                 </select>
                             </div>
 
-                            <div>
-                                <select id="formPublic" class="inputStyle margin-top" list="Pubblico" name="Pubblico">
-                                    <option value="" disabled selected>Selezione il Pubblico</option>
-                                    <option value="altroTarget">Generico</option>
-                                    <option value="asilo">Pre-scuola</option>
-                                    <option value="elementare">Scuola Primaria</option>
-                                    <option value="superiore">Scuola Media</option>
-                                    <option value="Specialisti del settore">Specialista del Settore</option>
+                            <div><p class="margin-bottom">Pubblico</p>
+                                <select id="formPublic" class="inputStyle h-bottom" list="Pubblico" name="Pubblico" onchange="salvo()">
+                                    <option value="gen" selected>Generico</option>
+                                    <option value="pre">Pre-scuola</option>
+                                    <option value="elm">Scuola Primaria</option>
+                                    <option value="mid">Scuola Media</option>
+                                    <option value="scl">Specialista del Settore</option>
                                 </select>
                             </div>
 
                             <input id="descrizioneLuogo" class="inputStyle margin-top" type="text" placeholder="Aggiungi una breve descrizione" name="descrizioneluogo" value="">
 
                             <div id="anteprimaVideo" class="color-white text-center h-top" style="display:none;">
-                                                            <div class="text-center">Anteprima Video</div>
-                                                            <video id="anteprima" class="margin-top" playsinline></video>
-                                                        </div>
-
-                            <div>
-                                <div class="div-left stilediv">
-                                    <input id="file" type="file" accept="video/*" />
-                                    <ion-icon class="media-icon font80" name="cloud-upload"></ion-icon>
-                                    <br>
-                                    <p>Carica File</p>
-                                </div>
-
-                                <div class="div-right">
-                                    <button id="start" type="button" class="stilediv" data-toggle="modal" data-target="#videoModal" disabled onclick="popoloSecondi()">
-                                        <ion-icon class="media-icon font80" name="camera"></ion-icon>
-                                        <br>
-                                        <p>Apri Fotocamera</p>
-                                    </button>
-                                </div>
+                                <div class="text-center">Anteprima Video</div>
+                                <video id="anteprima" class="margin-top" playsinline></video>
                             </div>
 
-                            <button id="addPlaceAction" class="playButton margin-top color-white">Carica Luogo</button>
+
+
+                            <button id="addPlaceAction" class="uploadButton margin-top color-white">Carica Luogo</button>
                         </form>
                         <button id="logout" class="color-white logoutButton h-top" onclick="signOut();">Logout con Google</button>
                     </div>
@@ -191,30 +189,25 @@
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title color-white" id="exampleModalLongTitle" align="center">Carica un video</h5>
+                                <h5 class="modal-title color-white" id="exampleModalLongTitle" style="text-align:center;">Carica un video</h5>
                             </div>
                             <div class="modal-body">
                                 <button id="record" class="playButton color-white" disabled>Inizia a registrare</button>
-                                <div class="container margin-top">
-                                    <div class="row">
-                                        <div class="col color-white font101">Il video può durare massimo: </div>
-                                        <div class="col color-white font101" id="timeVideo"></div>
-                                        <div class="w-100"></div>
-                                        <div class="col color-white font101" id="minimo"></div>
-                                        <div class="col color-white font101" id="mintimeVideo"></div>
-                                    </div>
-                                </div>
                                 <video id="gum" class="margin-top" playsinline autoplay muted></video>
-                                <video id="recorded" class="margin-top" playsinline autoplay loop></video>
+                                <video id="recorded" class="margin-top" playsinline></video>
+                                <div id="externBar" class="container margin-top">
+                                  <div class="row">
+                                    <div class="col">
+                                        <div class="progress-bar progress progress-bar-animated active" role="progressbar" id="progressBar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                  </div>
+                                </div>
                                 <br>
 
                                 <div class="container-fluid">
                                     <div class="row">
                                         <div class="col">
                                             <button id="play" class="playButton color-white" disabled>Play</button>
-                                        </div>
-                                        <div class="col">
-                                            <button id="download" class="playButton color-white" disabled>Download</button>
                                         </div>
                                         <div class="col">
                                             <button id="delete" class="playButton color-white" disabled>Delete</button>
@@ -245,7 +238,7 @@
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title color-white" id="exampleModalLongTitle" align="center">Stato del caricamento</h5>
+                                <h5 class="modal-title color-white" id="exampleModalLongTitle" style="text-align:center;">Stato del caricamento</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
@@ -263,6 +256,17 @@
                             </div>
                         </div>
                     </div>
+                </div>
+
+                <!-- The Modal Control -->
+                <div id="myModalTitle" class="my-modal-title">
+
+                    <!-- Modal content -->
+                    <div class="my-modal-content">
+                        <span class="my-close">&times;</span>
+                        <p class="color-white">Inserisci un nome al video!</p>
+                    </div>
+
                 </div>
 
                 </div>

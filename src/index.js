@@ -4,7 +4,6 @@ var app = express();
 var path = require('path');
 var mongo = require('mongodb').MongoClient;
 
-
 const url = 'mongodb://site181908:yiHui2re@mongo_site181908'
 
 /*

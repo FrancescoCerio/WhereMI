@@ -3,14 +3,24 @@ $(document).ready(function () {
 });
 
 var exportBlobs;
+var arrayClips = []; //Array di clip registrate
 
 function creaVideo() {
+
+    // setto i local storage
+    var dammiLingua = localStorage.getItem("lingua");
+    document.getElementById("formLanguage").value = dammiLingua;
+    var dammiCat = localStorage.getItem("categoria");
+    document.getElementById("formCategory").value = dammiCat;
+    var dammiPub = localStorage.getItem("pubblico");
+    document.getElementById("formPublic").value = dammiPub;
+
     "use strict";
     try {
-		signinCallback(gapi.client.getToken());
+		    signinCallback(gapi.client.getToken());
 		} catch (e) {
-		alert("errore nel caricare il token");
-	   }
+		    console.log("errore nel caricare il token");
+	  }
 
     /* Variabili globali MediaRecorder */
 
@@ -31,39 +41,63 @@ function creaVideo() {
     const anteprima = document.querySelector('video#anteprima');
     const anteprimaVideo = document.querySelector('div#anteprimaVideo');
 
+    function disableButtons(){
+      $('#btnNearMe').prop("onclick", null);
+      $('#btnCategory').prop("onclick", null);
+      $('#btnMap').prop("onclick", null);
+      $('#btnProfilo').prop("onclick", null);
+      $('#btnSearch').prop("onclick", null);
+    }
+
+    function enableButtons(){
+      $('#btnNearMe').attr('onClick', 'viewNearMe();');
+      $('#btnCategory').attr('onClick', 'viewCategory();');
+      $('#btnMap').attr('onClick', 'viewMap();');
+      $('#btnSearch').attr('onClick', 'viewSearch();');
+      $('#btnProfilo').attr('onClick', 'viewProfilo();');
+    }
 
     /*Controllo i secondi della durata del video*/
 	function supportoSecondi(secondi) {
 		var distance = secondi;
+    $('#progressBar').attr("aria-valuemax", secondi);
+    $("#progressBar").attr("aria-valuenow", distance);
+    var width = 100;
+
 		var intervallo = setInterval(function () {
-			var seconds = Math.floor(distance - 1);
-			distance -= 1;
-			document.getElementById("timeVideo").innerHTML = seconds + "s ";
+			var seconds = Math.floor(distance);
+			//distance -= 1;
 			if (recordButton.textContent === 'Inizia a registrare') {
 				clearInterval(intervallo);
-				document.getElementById("timeVideo").innerHTML = secondi-1 + "s";
+        $("#progressBar").css("display", "none");
 			}
-			if (distance < 0) {
+			if (distance <= 0) {
 				clearInterval(intervallo);
-				document.getElementById("timeVideo").innerHTML = secondi-1 + "s";
+				$("#progressBar").css("display", "none");
+        //bar.value = 0;
 				stopRecording();
 				supportoEventListener();
-			}
+			} else{
+        console.log(distance);
+        distance--;
+        width = width - width*1/seconds;
+        $("#progressBar").animate({width: width + "%"}).attr("aria-valuenow", distance);
+      }
 		}, 1000);
 		startRecording();
 	}
 
     function controlloSecondi() {
         if (document.getElementById("Check1").checked == true) {
-            supportoSecondi(16);
+          supportoSecondi(16);
         }
 
         if (document.getElementById("Check3").checked == true) {
             var distance = 31;
+            var width = 100;
+
             var intervallo = setInterval(function () {
-                var seconds = Math.floor(distance - 1);
-                distance -= 1;
-                document.getElementById("timeVideo").innerHTML = seconds + "s ";
+                var seconds = Math.floor(distance);
                 if (distance > 15) {
                     recordButton.disabled = true;
                 } else {
@@ -71,13 +105,18 @@ function creaVideo() {
                 }
                 if (recordButton.textContent === 'Inizia a registrare') {
           				clearInterval(intervallo);
-          				document.getElementById("timeVideo").innerHTML = "30s";
+                  $("#progressBar").css("display", "none");
           			}
                 if (distance < 0) {
                     clearInterval(intervallo);
-                    document.getElementById("timeVideo").innerHTML = "30s";
-					stopRecording();
-					supportoEventListener();
+                    $("#progressBar").css("display", "none");
+					          stopRecording();
+					          supportoEventListener();
+                } else {
+                  console.log(distance);
+                  distance--;
+                  width = width - width*1/seconds;
+                  $("#progressBar").animate({width: width + "%"}).attr("aria-valuenow", distance);
                 }
             }, 1000);
             startRecording();
@@ -106,14 +145,15 @@ function creaVideo() {
         recordButton.textContent = 'Inizia a registrare';
         gumVideo.style.display = "none";
         recordedVideo.style.display = "block";
+        $("#progressBar").css("width", "100%");
         playButton.disabled = false;
-        downloadButton.disabled = false;
         deleteButton.disabled = false;
         salvaModifiche.disabled = false;
     }
 
     recordButton.addEventListener('click', () => {
         if (recordButton.textContent === 'Inizia a registrare') {
+          $("#progressBar").css("width", "100%")
             controlloSecondi();
         } else {
             stopRecording();
@@ -134,25 +174,6 @@ function creaVideo() {
         recordedVideo.src = window.URL.createObjectURL(superBuffer);
         recordedVideo.controls = true;
         recordedVideo.play();
-    });
-
-    /* Gestione pulsante di Download */
-    const downloadButton = document.querySelector('button#download');
-    downloadButton.addEventListener('click', () => {
-        const blob = new Blob(recordedBlobs, {
-            type: 'video/mp4'
-        });
-        const url = window.URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.style.display = 'none';
-        a.href = url;
-        a.download = 'test.mp4';
-        document.body.appendChild(a);
-        a.click();
-        setTimeout(() => {
-            document.body.removeChild(a);
-            window.URL.revokeObjectURL(url);
-        }, 100);
     });
 
     function handleSourceOpen(event) {
@@ -182,10 +203,10 @@ function creaVideo() {
         console.log('Created MediaRecorder', mediaRecorder, 'with options', options);
         recordButton.textContent = 'Fine Registrazione';
         playButton.disabled = true;
-        downloadButton.disabled = true;
         deleteButton.disabled = true;
         recordedVideo.style.display = "none";
         gumVideo.style.display = "block";
+        document.getElementById("progressBar").style.display = "block";
         mediaRecorder.onstop = (event) => {
             //mediaRecorder.stop();
             console.log('Recorder stopped: ', event);
@@ -213,7 +234,6 @@ function creaVideo() {
         gumVideo.style.display = "block";
         deleteButton.disabled = true;
         recordButton.disabled = false;
-        downloadButton.disabled = true;
         playButton.disabled = true;
         salvaModifiche.disabled = true;
         recordedBlobs = [];
@@ -226,26 +246,10 @@ function creaVideo() {
         recordedVideo.style.display = "none";
         console.log('getUserMedia() got stream:', stream);
         window.stream = stream;
-
         localstream = stream;
 
         gumVideo.srcObject = stream;
-    }
-
-    function showRecordedVideo() {
-        if (recordedVideo.src !== null && recordedBlobs != undefined) {
-            const buf = new Blob(recordedBlobs, {
-                type: 'video/mp4'
-            });
-            $('#infoVideo').append(recordedVideo);
-            $('#infoVideo').css("display", "block");
-            //$('#recorded').addClass("fitSize");
-            recordedVideo.src = window.URL.createObjectURL(buf);
-            recordedVideo.style.display = 'block';
-            recordedVideo.controls = true;
-            recordedVideo.loop = false;
-            recordedVideo.autoplay = false;
-        }
+        disableButtons();
     }
 
     async function init(constraints) {
@@ -257,30 +261,31 @@ function creaVideo() {
         }
     }
 
-    salvaModifiche.addEventListener('click', () => {
+    salvaModifiche.addEventListener('click', (e) => {
         //mediaRecorder.stop();
         stream.getTracks().forEach(track => track.stop());
         recordedVideo.pause();
         recordedVideo.removeAttribute('src');
         recordedVideo.load();
         recordedVideo.style.display = "none";
+        gumVideo.style.display = "none";
         deleteButton.disabled = true;
         recordButton.disabled = false;
-        downloadButton.disabled = true;
         playButton.disabled = true;
         salvaModifiche.disabled = true;
-        gumVideo.style.display = 'none';
         //jQuery.noConflict();
-        $('#videoModal').hide();
-        anteprimaVideo.style.display = "block";
+        e.preventDefault();
+        $("#videoModal").hide();
         const superBuffer = new Blob(recordedBlobs, {
             type: 'video/mp4'
         });
+        anteprimaVideo.style.display = "block";
         anteprima.src = null;
         anteprima.srcObject = null;
         gumVideo.style.display = "none";
         anteprima.src = window.URL.createObjectURL(superBuffer);
         anteprima.controls = true;
+        enableButtons();
     });
 
     eliminaModifiche.addEventListener('click', () => {
@@ -293,13 +298,13 @@ function creaVideo() {
         recordedVideo.removeAttribute('src');
         recordedVideo.load();
         recordedVideo.style.display = "none";
-        gumVideo.style.display = "block";
+        gumVideo.style.display = "none";
         deleteButton.disabled = true;
         recordButton.disabled = false;
-        downloadButton.disabled = true;
         playButton.disabled = true;
         salvaModifiche.disabled = true;
         recordedBlobs = [];
+        enableButtons();
     });
 
     startButton.addEventListener('click', async () => {
@@ -335,40 +340,24 @@ function validateForm() {
 		let categoria = document.forms["formPlace"]["Categoria"].value;
 		let pubblico = document.forms["formPlace"]["Pubblico"].value;
         let lang = document.forms["formPlace"]["formLanguage"].value;
+        let mymodal = document.getElementById("myModalTitle");
+        let span = document.getElementsByClassName("my-close")[0];
+
+        span.onclick = function() {
+            mymodal.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+            if (event.target == mymodal) {
+                mymodal.style.display = "none";
+            }
+        }
 
 		if ((nomeluogo == "") || (categoria == "") || (pubblico == "")||(lang == "")) {
 				isValidDescription = false;
-				alert("Per caricare un nuovo luogo devi inserire il nome del luogo, scegliere una categoria, selezionare un publico e scegliere una lingua.");
+                mymodal.style.display = "block";
 		}
 
 		return isValidDescription;
-}
-
-function popoloSecondi() {
-		if (document.getElementById("Check1").checked == true) {
-				document.getElementById("timeVideo").innerHTML = "15s";
-				document.getElementById("minimo").innerHTML = "";
-				document.getElementById("mintimeVideo").innerHTML = "";
-		}
-		if (document.getElementById("Check3").checked == true) {
-				document.getElementById("timeVideo").innerHTML = "30s";
-				document.getElementById("minimo").innerHTML = "Il video deve durare minimo: ";
-				document.getElementById("mintimeVideo").innerHTML = "15s";
-		}
-		if (document.getElementById("Check2").checked == true) {
-				if (document.getElementById("valoreDettaglio").value <= 2) {
-						document.getElementById("timeVideo").innerHTML = "15s";
-				}
-				if ((document.getElementById("valoreDettaglio").value > 2) && (document.getElementById("valoreDettaglio").value <= 4)) {
-						document.getElementById("timeVideo").innerHTML = "30s";
-				}
-				if ((document.getElementById("valoreDettaglio").value > 4) && (document.getElementById("valoreDettaglio").value <= 7)) {
-						document.getElementById("timeVideo").innerHTML = "45s";
-				}
-				if ((document.getElementById("valoreDettaglio").value > 7) && (document.getElementById("valoreDettaglio").value <= 10)) {
-						document.getElementById("timeVideo").innerHTML = "60s";
-				}
-				document.getElementById("minimo").innerHTML = "";
-				document.getElementById("mintimeVideo").innerHTML = "";
-		}
 }

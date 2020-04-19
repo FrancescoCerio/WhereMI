@@ -374,7 +374,7 @@ var searchClips = () => {
     var query = OpenLocationCode.encode(markerLat,markerLng, precision);
 
     // Chiave API Google
-    var apikey = "";
+    var apikey = "AIzaSyCOU7MHNBD0JwE7ThBRx2kocrI7Gne2NVg";
 
     // Limite al numero dei risultati
 	var maxResults = 50;

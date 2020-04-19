@@ -1,0 +1,341 @@
+%https://www.overleaf.com/learn/latex/Beamer_Presentations:_A_Tutorial_for_Beginners_(Part_2)—Lists,_Columns,_Pictures,_Descriptions_and_Tables
+
+%Usate il link sopra è una guida con tutti i comandi per le slidesss
+\documentclass{beamer}
+
+\usepackage{graphicx}           	% Allows including images
+\usepackage{booktabs}         	  	% Allows the use of \toprule,
+                                					% \midrule and \bottomrule in tables
+\usepackage{tikz}               		% add background image
+
+\usepackage{setspace}				%different line spacing can be achieved.
+
+
+
+
+\title{WhereMI}
+\subtitle{L'audioguida turistica del XXI secolo}
+\author{
+  Filippo Bartolucci
+  \texttt{Matricola 0000838531}\\
+  \and
+  Umberto Case
+  \texttt{Matricola 0000833051}\\
+    \and
+  Matteo Celani
+  \texttt{Matricola 0000834303}\\
+    \and
+  Francesco Cerio
+  \texttt{Matricola 0000832618}
+ }
+\institute{Università di Bologna}
+\date{}
+
+\setbeamertemplate{frametitle}[default][center]
+
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}
+Where MI è un'app per trovare velocemente audioguide sul web. E' pensata per due tipi di utenti:
+\begin{itemize}
+  \item Le guide che posteranno gratuitamente video sul web
+  \item I turisti, in cerca di consigli, cultura e svago
+\end{itemize}
+Where MI è una coppia di web application:
+\begin{itemize}
+  \item Il browser permette al turista di trovare audio, video e testo dei principali luoghi d'interesse
+  \item L'editor permette ad una guida di creare audio, video e testo associati a dei luoghi e catalogarle
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\centering \includegraphics[width=7cm]{Images/UML/UML2}
+\end{frame}
+
+\begin{frame}
+\frametitle{Tecnologie utilizzate}
+\begin{itemize}
+  \item HTML, CSS
+  \item Javascript
+  \item Gocker
+  \begin{itemize}
+  \item NodeJs (lato server)
+  \item MongoDB (per eventuali database)
+\end{itemize}
+\end{itemize}
+Metodologia di sviluppo
+  \begin{itemize}
+  \item Scrum
+\end{itemize}
+      \centering  \begin{tabular}{c}
+        \includegraphics[width=11cm]{Images/scrum/scrum-sprint}
+      \end{tabular}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Divisione Compiti}
+  \begin{columns}
+    \begin{column}{.48\textwidth} % Left column and width
+    Team Editor:
+ \begin{itemize}
+  \item Francesco Cerio
+      \begin{itemize}
+	\item SO: MacOS Catalina
+    \item Editor: Atom
+    \item Server Locale: MAMP
+    \item GitLab: estensione Git Atom / GitHub Desktop
+  \end{itemize}
+  \item Matteo Celani
+      \begin{itemize}
+	\item SO: MacOS Mojave
+    \item Editor: Atom
+    \item Server Locale: MAMP
+    \item GitLab: GitHub Desktop
+  \end{itemize}
+\end{itemize}
+    \end{column}
+    \hfill
+    \begin{column}{.48 \textwidth}
+    Team Browser:
+  \begin{itemize}
+  \item Filippo Bartolucci
+  \begin{itemize}
+	\item SO: MacOS Catalina
+    \item Editor: Atom
+    \item Server Locale: NodeJS da terminale
+    \item GitLab: GitHub Desktop
+  \end{itemize}
+  \item Umberto Case
+    \begin{itemize}
+	\item SO: MacOS Catalina
+    \item Editor: Atom
+    \item Server Locale:
+    \item GitLab: estensione Git Atom
+  \end{itemize}
+\end{itemize}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}
+\frametitle{Software CAS}
+\framesubtitle{Taiga}
+Organizzazione User Story
+  \begin{itemize}
+  	\item Le abbiamo divise in Editor e Browser
+	\item Ad ognuna di esse abbiamo dato un tag
+	\item Sono stati assegnati i punteggi UX/Design/Front/Back
+	\item Abbiamo utilizzato i commenti per mostrare i progressi nel loro sviluppo
+  \end{itemize}
+  Organizzazione Kanban
+    \begin{itemize}
+  	\item Ad ogni nuova implementazione veniva aggiornato il Kanban
+	\item Usato sotto storie per sviluppi minori
+	\item Non tutte le idee sono state effettivamente sviluppate
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Sprint Taiga}
+\begin{columns}
+\column{0.5\textwidth}
+Primo sprint\\
+20/01/2020 - 03/02/2020
+  \begin{itemize}
+	\item Mappa
+	\item Login
+	\item User Info
+	\item Migliorare interfaccia Login
+	\item Punti d'interesse vicino a me
+	\item Css Clip
+	\item Posizione Manuale
+	\item Indicazioni
+  \end{itemize}
+\column{0.5\textwidth}
+  Secondo sprint
+03/02/2020 - 09/02/2020
+  \begin{itemize}
+	\item Creazione Contenuti
+	\item Css vicino a me
+	\item Popup on hover
+	\item Clip luogo corrente
+	\item Next/Prev
+	\item Ricerca Contenuti
+	\item Miglioro UI/UX
+	\item Mostra contenuti
+	\item Logout
+  \end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}
+\frametitle{Sprint Taiga}
+\begin{columns}
+\column{0.5\textwidth}
+Terzo sprint\\
+09/02/2020 - 13/02/2020
+  \begin{itemize}
+	\item Descrizione Wikipedia
+	\item Feedback vocale
+	\item Riproduci clip
+	\item Filtro ricerca
+	\item Creazione di annotazioni
+	\item Ricerca immagini
+	\item Aggiungere informazioni su un luogo
+  \end{itemize}
+\column{0.5\textwidth}
+  Quarto sprint (non programmato)\\
+20/02/2020 - 04/03/2020
+  \begin{itemize}
+	\item Controllo Vocale
+	\item Ricerca Luogo
+	\item Raggruppare le clip per luogo
+	\item Luoghi già visitati
+	\item Memorizzare campi editori
+  \end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}
+\frametitle{Software CAS}
+\framesubtitle{GitLab}
+GitLab è lo strumento di version control e repository utilizzato per il progetto.\\
+Git ci ha permesso di scrivere codice evitando conflitti tra le varie copie/versioni dei sorgenti.
+  \begin{itemize}
+	\item Branch separati per sviluppo
+  \end{itemize}
+      \centering
+        \begin{tabular}{c}
+        \includegraphics[width=11cm]{Images/GitLab/branches2}
+      \end{tabular}
+\end{frame}
+
+\begin{frame}
+\frametitle{Software CAS}
+\framesubtitle{Mattermost}
+MatterMost è la soluzione OpenSource per gestire le comunicazioni tra i membri di un gruppo di lavoro sia che si trovino negli stessi uffici sia che lavorino da remoto tramite telelavoro.\\
+\vspace{0.2cm}
+Noi in particolare abbiamo creato due canali di comunicazione diversi, con obbiettivi diversi:
+\vspace{0.2cm}
+\begin{columns}
+\column{0.5\textwidth}
+\centering
+Idee
+  \begin{itemize}
+	\item Nuove
+	\item In corso di sviluppo
+	\item Scartate
+	\item Finite
+  \end{itemize}
+\column{0.5\textwidth}
+\centering
+Bugs
+  \begin{itemize}
+	\item Nuovi
+	\item Macchine di laboratorio
+	\item HTML, CSS, JavaScript
+	\item Risolti
+  \end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}
+\frametitle{Software CAS}
+\framesubtitle{SonarQube}
+SonarQube è un’applicazione web che produce report sul codice duplicato, sugli standard di programmazione, i test di unità , il code coverage, la complessità , i bug potenziali, i commenti, la progettazione e l’architettura.
+  \begin{itemize}
+	\item Ogni bug segnalato è stato risolto
+	\item L'utilizzo di tecnologie deprecate sono state sostituite
+	\item Eventuali codici duplicati sono stati eliminati (in particolare CSS)
+	\item Commenti inutili sono stati cancellati
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Software CAS}
+\framesubtitle{Innometrics}
+\begin{columns}
+\column{0.5\textwidth}
+Collector\\
+Il collector monitora quanto tempo passiamo su ogni applicazione o sito web.
+\column{0.5\textwidth}
+Transfer\\
+Innometrics Transfer permette di vedere i dati raccolti da Collector.\\
+È possibile filtrare e/o caricare i dati su un server.
+\end{columns}
+\end{frame}
+
+\begin{frame}
+\frametitle{Burndown}
+  \begin{enumerate}
+	\item Costruzione scheletro del sito
+	 	 \begin{enumerate}
+			\item WhereMI, VicinoMe, Cerca, Team,Profilo
+			\item Login, posizione, punti di interesse
+    		 \end{enumerate}
+	\item Sviluppo tecnologie e UI/UX
+		 \begin{enumerate}
+			\item Contenuti, ricerca, popup, logout
+			\item Next Prev, UI/UX, css
+     	 \end{enumerate}
+	\item Incrementato il numero di funzionalità
+		 \begin{enumerate}
+			\item Wikipedia, feedback, clip, filtri, annotazioni
+			\item Ricerca immagini, informazioni luogo
+      	\end{enumerate}
+	\item Implementazioni aggiuntive e correzioni finali
+		 \begin{enumerate}
+			\item Controllo vocale, raggruppato clip per luogo
+			\item Cookie
+      	\end{enumerate}
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}
+\frametitle{Burndown}
+\centering
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+\hline
+					& Sprint 1.1	& Sprint 1.2	&Sprint 2.1	&Sprint 2.2	\\
+Punteggio		& 247			& 285			& 380			& 251			\\
+\hline
+					&Sprint 3.1	&Sprint 3.2	&Sprint 4.1	&Sprint 4.1    \\
+Punteggio 	& 138,5			& 136			& 168			& 78 			 	 \\
+\hline
+\end{tabular}
+ \centering
+        \begin{tabular}{c}
+        \includegraphics[width=11cm]{burndown/burndown_slides.png}
+      \end{tabular}
+\end{frame}
+
+\begin{frame}
+\frametitle{Impressioni finali}
+Abbiamo stilato una "classifica" in base a quanto ci sono stati utili i software utilizzati:
+  \begin{enumerate}
+	\item Taiga
+	\item GitLab
+	\item SonarQube
+	\item Mattermost
+  \end{enumerate}
+  Software che non abbiamo ritenuto indispensabili:
+  \begin{enumerate}
+	\item Innometrics
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}
+\frametitle{Impressioni finali}
+I software utilizzati ci hanno aiutato parecchio nello sviluppo del codice, in particolare per organizzar le idee.\\
+Taiga ci ha dato una grande mano a portare avanti un lavoro ben strutturato ed organizzato.\\
+SonarQube è stato utile a trovare bug in modo facile e veloce ed a utilizzare tecniche di scrittura di codice più efficienti.\\
+Mattermost è un canale di comunicazione completo, quindi siamo riusciti a comunicare in modo facile e veloce, inoltrando link e file senza avere problemi. Grazie all'applicazione mobile la comunicazione e la recezione dei messaggi è stata veloce.
+Manca Git Lab
+\end{frame}
+
+\end{document}

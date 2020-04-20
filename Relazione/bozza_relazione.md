@@ -18,15 +18,16 @@ Relazione dell'esperienza fatta sviluppando un progetto software con un sistema 
   2. [Taiga](#taiga)  
     2.1 [Specifiche del progetto](#specificheprogetto)  
     2.2 [Oganizzazione User Story](#organizzazioneuserstory)  
-    2.3 [Organizzazione Kanban](#organizzazionekanban)  
-    2.4 [Definition of Done](#definitionofdone)  
-    2.5 [Issue](#issue)  
-    2.6 [Sprint](#sprint)  
-    2.7 [Primo Sprint](#primosprint)  
-    2.8 [Secondo Sprint](#secondosprint)  
-    2.9 [Terzo Sprint](#terzosprint)  
-    2.10 [Quarto Sprint](#quartosprint)
-    2.11 [Burndown](#burndown)
+    2.3 [Product Backlog](#productbacklog)  
+    2.4 [Organizzazione Kanban](#organizzazionekanban)
+    2.5 [Definition of Done](#definitionofdone)    
+    2.6 [Issue](#issue)
+    2.7 [Sprint](#sprint)  
+    2.8 [Primo Sprint](#primosprint)   
+    2.9 [Secondo Sprint](#secondosprint)  
+    2.10 [Terzo Sprint](#terzosprint)
+    2.11 [Quarto Sprint](#quartosprint)
+    2.12 [Burndown](#burndown)
   3. [Gitlab](#gitlab)
   4. [Mattermost](#mattermost)
   5. [Sonarqube](#sonarqube)
@@ -192,8 +193,15 @@ Avere le user story ben organizzate sul kanban ci ha aiutato molto nello svilupp
 Per la gestione degli issue ci siamo affidati sempre a Taiga perché lo abbiamo trovato più che sufficiente per i nostri scopi, dal momento che per ogni issue permette di assegnare tipo, gravità, priorità e status.
 
 <div style="page-break-after: always;"></div>
+### 2.3 Product Backlog <a name="productbacklog"></a>
+Di seguito è riportata l'organizzazione del product backlog diviso tra User Story e stima in ore per la realizzazione di ognuna di esse. La stima è stata effettuata in base alla difficoltà di ciascuna user story ed è un valore indicativo.
+<figure>
+   <img style="border: 1px  solid black; display:  block;margin-left: auto;margin-right: auto; max-width:90%;" src="./Images/Taiga/UserStory/backlog.png"  />
+   <figcaption style="font-style: italic;text-align: center;">Product Backlog</figcaption>
+</figure>
 
-### 2.3 Organizzazione Kanban <a name="organizzazionekanban"></a>
+
+### 2.4 Organizzazione Kanban <a name="organizzazionekanban"></a>
 
 Di seguito sono riportati degli snapshot effettuati a campione durante lo sviluppo del progetto.
 
@@ -209,12 +217,11 @@ Di seguito sono riportati degli snapshot effettuati a campione durante lo svilup
 
 Organizzare il Kanban ci ha aiutato ad avere una visione globale dell'avanzamento dello sviluppo del progetto. Visualizzare graficamente i task ci ha permesso di avere un'organizzazione pulita e chiara di tutte le parti da sviluppare e di quelle già completate.
 
-<div style="page-break-after: always;"></div>
 
-### 2.4 Definition of done <a name="definitionofdone"></a>
+### 2.5 Definition of done <a name="definitionofdone"></a>
 Il sito per essere funzionante doveva essere compatibile con le clip create dagli altri progetti. Ci siamo basati su questo per la nostra definition of done. Il lato browser doveva trovare e visulizzare senza problemi le clip altrui, d'altra parte il lato editor doveva creare nuove clip e far sì che queste comparissero insieme alle altre.
 
-### 2.5 Issue <a name="issue"></a>
+### 2.6 Issue <a name="issue"></a>
 Anche per la gestione degli issue abbiamo utilizzato le funzionalità che ci offre Taiga. Non ha una gestione particolarmente avanzata, però per il nostro progetto è stato più che sufficiente.
 
 <figure>
@@ -226,7 +233,7 @@ Per ogni issue abbiamo riportato tipo, gravità e priorità, inoltre abbiamo usa
 
 <div style="page-break-after: always;"></div>
 
-### 2.6 Sprint <a name="sprint"></a>
+### 2.7 Sprint <a name="sprint"></a>
 
 All'inizio dello sviluppo abbiamo deciso che il nostro sito doveva essere sviluppato seguendo lo stile di un'applicazione mobile, quindi doveva essere mobile-first, basato su navbar e reattivo. Per fare ciò abbiamo deciso di usare un footer fisso come navbar e di utilizzare Ajax per il caricamento delle pagine dell'applicazione.
 
@@ -242,7 +249,7 @@ Prima di iniziare gli sprint, le uniche righe di codice scritte erano contenute 
 <div style="page-break-after: always;"></div>
 
 
-#### 2.7 Primo sprint <a name="primosprint"></a>
+#### 2.8 Primo sprint <a name="primosprint"></a>
 Durata: 20/01/2020 - 03/02/2020
 
 Per il primo sprint abbiamo dato priorità assoluta alle user story obbligatorie. Abbiamo inserito tutte le story che ritenevano base per lo sviluppo delle altre. Per esempio sono state inserite le user story che riguardano il login che è una funzionalità necessaria per lo sviluppo delle le user story che riguardano la creazione e il caricamento dei video.
@@ -280,7 +287,7 @@ Il sito è ancora molto semplice: c'è una mappa con qualche pulsante per intera
 <div style="page-break-after: always;"></div>
 
 
-#### 2.8 Secondo sprint <a name="secondosprint"></a>
+#### 2.9 Secondo sprint <a name="secondosprint"></a>
 Durata: 03/02/2020 - 09/02/2020
 
 Anche nel secondo sprint le story obbligatorie hanno avuto la priorità, ma abbiamo iniziato  a lavorare anche su qualcuna di quelle facoltative.
@@ -316,7 +323,7 @@ Nella mappa è stata aggiunta la ricerca delle clip, le quali vengono ora visual
 
 <div style="page-break-after: always;"></div>
 
-#### 2.9 Terzo sprint <a name="terzosprint"></a>
+#### 2.10 Terzo sprint <a name="terzosprint"></a>
 Durata: 09/02/2020 - 13/02/2020
 
 Inizialmente questo era stato programmato per essere lo sprint finale, dato che eravamo giunti a ridosso della data di scadenza per la presentazione del progetto. Ci siamo, quindi concetrati nell'aggiungere alcune delle feature facoltative, nel sistemare i bug e ripulire il codice secondo i report di SonarQube.
@@ -349,7 +356,7 @@ Tutte le sezioni dell'applicazione sono state riviste graficamente. Nella mappa 
 
 <div style="page-break-after: always;"></div>
 
-#### 2.10 Quarto sprint <a name="quartosprint"></a>
+#### 2.11 Quarto sprint <a name="quartosprint"></a>
 Durata: 15/02/2020 - 04/03/2020
 
 Questo è stato per noi uno sprint non programmato, ma necessario per soddisfare le richieste del professore Vitali. Ci è stato chiesto di: cambiare il modo di visualizzare le clip sulla mappa, queste non devono comparire come singoli punti di interesse, ma vanno raggruppate per luoghi; trasformare le chiamata ajax sincrone in asincrone; aggiungere il controllo vocale; e, infine, implementare parti facoltative minori.
@@ -371,7 +378,7 @@ Abbiamo sfruttato il tempo extra a disposizione per aggiungere anche qualche sto
 | corsupload.js 	|      280     	|     280    	|       0    	|
 |   editor.js   	|      393     	|     363    	|     -30   	|
 |    login.js   	|      345     	|     351    	|     +6    	|
-|     map.js    	|      859     	|     1327    	|     +468   	|
+|     map.js    	|      859     	|     1327   	|     +468   	|
 |   upload.js   	|      243     	|     242    	|     -1    	|
 |   Totale  	    |      2120    	|     2563   	|    +443   	|
 
@@ -388,7 +395,7 @@ Alla consegna del progetto il professore Vitali ci ha assegnato 26/30.
 
 <div style="page-break-after: always;"></div>
 
-#### 2.11 Burndown <a name="burndown"></a>
+#### 2.12 Burndown <a name="burndown"></a>
 Un burn down chart è una rappresentazione grafica del lavoro da fare su un progetto nel tempo. Il diagramma rappresenta una serie storica del lavoro da noi svolto. È utile per prevedere quando avverrà il completamento del lavoro. È spesso utilizzato in metodologie agili di sviluppo software come Scrum (appunto da noi utilizzata).
 
 In particolare per ottenere un grafico più accurato, noi abbiamo diviso gli sprint in 2 sprint minori e creato un grafico con il punteggio relativo.
@@ -451,7 +458,7 @@ Per la comunicazione del team abbiamo usato Mattermost, applicazione che offre t
 
 <figure>
    <img style="display:  block;margin-left: auto;margin-right: auto; max-width:100%;" src="./Images/Mattermost/mattermost.png"  />
-   <figcaption style="font-style: italic;text-align: center;">App Desktop </figcaption>
+   <figcaption style="font-style: italic;text-align: center;">Screenshot App Mobile/Desktop </figcaption>
 </figure>
 
 L'App mobile si è presentata molto intuitiva e semplice nell'utilizzo, come ogni applicazione di messaggistica. Sul sistema operativo Android non abbiamo riscontrato problemi di utilizzo.
@@ -515,9 +522,10 @@ Questa schermata raccoglie i risultati delle analisi dei successivi due sprint. 
    <img style="border: 1px  solid black;display:  block;margin-left: auto;margin-right: auto; max-width:60%;" src="./Images/SonarQube/ultimo-sprint.png"  />
    <figcaption style="font-style: italic;text-align: center;">Analisi del codice dopo il quarto sprint</figcaption>
 </figure>
-Dall'ultima analisi abbiamo riscontrato dei risultati positivi rispetto alle precedenti, in quanto tutti i parametri sono stati azzerati. Rimane solo una parte di codice duplicato, ma questo è dovuto alla presenza di uno switch nel codice JavaScript che analizza dei casi che possono avere dei nomi diversi ma gestione del codice uguale e quindi ridondanza dello stesso.
+Dall'ultima analisi abbiamo riscontrato dei risultati positivi rispetto alle precedenti, in quanto tutti i parametri sono stati azzerati. Abbiamo imparato come sviluppare senza commettere errori, imparando di volta in volta e abbiamo applicato i consigli che ci sono stati forniti da software. Siamo rimasti molto entusiasti di questo risultato in quanto ci ha aiutato a migliorare dal punto di vista di sviluppo, analisi e previsione degli errori.
+Come si può notare dalla schermata rimane solo una parte di codice duplicato, ma questo è dovuto alla presenza di uno switch nel codice JavaScript che analizza dei casi che possono avere dei nomi diversi ma gestione del codice uguale e quindi ridondanza dello stesso.
 <br>
-<div style="page-break-after: always;"></div>
+
 
 Ci siamo avvalsi dei grafici statistici sull'andamento del codice per capire dove stavamo sbagliando, se il lavoro svolto fino a quel momento andasse bene e in cosa migliorarlo.
 

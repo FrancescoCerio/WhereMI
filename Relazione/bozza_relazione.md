@@ -1,6 +1,6 @@
 # Relazione Ingegneria del software
 Relazione dell'esperienza fatta sviluppando un progetto software con un sistema per lo sviluppo agile in team per il corso di Ingegneria del Software 2019/2020.
-
+dia
 **Team:**
 
 * Filippo Bartolucci  0000838531
@@ -8,6 +8,8 @@ Relazione dell'esperienza fatta sviluppando un progetto software con un sistema 
 * Matteo Celani  0000834303    
 * Francesco Cerio 0000832618
 
+<div style="page-break-after: always;"></div>
+.
 <div style="page-break-after: always;"></div>
 
 # Indice
@@ -19,21 +21,21 @@ Relazione dell'esperienza fatta sviluppando un progetto software con un sistema 
     2.1 [Specifiche del progetto](#specificheprogetto)  
     2.2 [Oganizzazione User Story](#organizzazioneuserstory)  
     2.3 [Product Backlog](#productbacklog)  
-    2.4 [Organizzazione Kanban](#organizzazionekanban)
+    2.4 [Organizzazione Kanban](#organizzazionekanban)  
     2.5 [Definition of Done](#definitionofdone)    
-    2.6 [Issue](#issue)
-    2.7 [Sprint](#sprint)  
+    2.6 [Issue](#issue)  
+    2.7 [Sprint](#sprint)    
     2.8 [Primo Sprint](#primosprint)   
     2.9 [Secondo Sprint](#secondosprint)  
-    2.10 [Terzo Sprint](#terzosprint)
-    2.11 [Quarto Sprint](#quartosprint)
+    2.10 [Terzo Sprint](#terzosprint)  
+    2.11 [Quarto Sprint](#quartosprint)  
     2.12 [Burndown](#burndown)
   3. [Gitlab](#gitlab)
   4. [Mattermost](#mattermost)
-  5. [Sonarqube](#sonarqube)
-    5.1 [Analisi Primo Sprint](#analisi-primo-sprint)
-    5.2 [Analisi Secondo e Terzo Sprint](#analisi-secondo-sprint)
-    5.4 [Analisi Quarto Sprint](#analisi-quarto-sprint)
+  5. [Sonarqube](#sonarqube)  
+    5.1 [Analisi Primo Sprint](#analisi-primo-sprint)  
+    5.2 [Analisi Secondo e Terzo Sprint](#analisi-secondo-sprint)  
+    5.4 [Analisi Quarto Sprint](#analisi-quarto-sprint)  
   6. [Innometrics](#innometrics)  
     6.1  [Collector](#collector)  
     6.2  [Transfer](#transfer)
@@ -47,7 +49,9 @@ Relazione dell'esperienza fatta sviluppando un progetto software con un sistema 
 <figure>
    <img style="display:  block;margin-left: auto;margin-right: auto; max-width:80%;" src="./Images/mockup.png"  />
 </figure>
-Where MI è una web app che fornisce un modo semplice e veloce per trovare audio guide sul web. <br>
+
+Where MI è una web app che fornisce un modo semplice e veloce per trovare audio guide sul web.
+
 È pensata per due tipi di utenti:
 * Le guide, degli influencer/vlogger che posteranno gratuitamente video guide sul web
 * I turisti, in cerca di consigli, cultura e svago.
@@ -92,6 +96,13 @@ Where MI è una web app che fornisce un modo semplice e veloce per trovare audio
 | Crea clip video | <ul><li>Deve essere registrato un video</li><li>L'utente deve essere loggato</li><li>L'utente deve aver inserito le informazioni</li></ul> | L'insieme delle informazioni ed il video vengono raggruppati in un unico file. || Il video è pronto per essere caricato su Youtube. |
 
 <div style="page-break-after: always;"></div>
+
+## Diagramma di classe
+<figure>
+   <img style="border: 0px  solid black;display:  block;margin-left: auto;margin-right: auto; max-width:80%;" src="./Images/diagramma_di_classe.png"  /><br>
+   <figcaption style="font-style: italic;font-style: italic;text-align: center;"> Strutture dati del browser alla fine del quarto sprint.</figcaption>
+</figure>
+
 
 ### 1.1 Tecnologie utilizzate <a name="progettosviluppato"></a>
 Dovendo sviluppare un progetto per il web, i linguaggi da noi usati sono stati HTML, CSS e JavaScript. L'unico vincolo tecnologico dato era che il sito doveva funzionare correttamente su Gocker, una macchina del Dipartimento di Informatica dedicata ai progetti web degli studenti. Gocker offre due servizi: NodeJs per il lato server, obbligatorio, e MongoDB per eventuali database, non obbligatorio.
@@ -243,7 +254,7 @@ Prima di iniziare gli sprint, le uniche righe di codice scritte erano contenute 
 
 <figure>
    <img style="display:  block;margin-left: auto;margin-right: auto; max-width:100%;" src="./Images/righe.png" />
-   <figcaption style="font-style: italic;font-style: italic;text-align: center;">Resoconto del numero di righe scritte per sprint </figcaption>
+   <figcaption style="font-style: italic;font-style: italic;text-align: center;">Resoconto del numero di righe scritte negli sprint </figcaption>
 </figure>
 
 <div style="page-break-after: always;"></div>
@@ -361,13 +372,14 @@ Durata: 15/02/2020 - 04/03/2020
 
 Questo è stato per noi uno sprint non programmato, ma necessario per soddisfare le richieste del professore Vitali. Ci è stato chiesto di: cambiare il modo di visualizzare le clip sulla mappa, queste non devono comparire come singoli punti di interesse, ma vanno raggruppate per luoghi; trasformare le chiamata ajax sincrone in asincrone; aggiungere il controllo vocale; e, infine, implementare parti facoltative minori.
 
+
+
 <figure>
    <img style="border: 1px  solid black; display:  block;margin-left: auto;margin-right: auto; max-width:40%;" src="./Images/Taiga/sprint4.png"  />
    <figcaption style="font-style: italic;text-align: center;">Quarto sprint</figcaption>
 </figure>
 
 Abbiamo sfruttato il tempo extra a disposizione per aggiungere anche qualche story facoltativa, sistemare e riorganizzare ulteriormente il codice per rendere il progetto più chiaro e facile da leggere.
-
 
 **Risultato sprint**  
 
@@ -396,12 +408,11 @@ Alla consegna del progetto il professore Vitali ci ha assegnato 26/30.
 <div style="page-break-after: always;"></div>
 
 #### 2.12 Burndown <a name="burndown"></a>
-Un burn down chart è una rappresentazione grafica del lavoro da fare su un progetto nel tempo. Il diagramma rappresenta una serie storica del lavoro da noi svolto. È utile per prevedere quando avverrà il completamento del lavoro. È spesso utilizzato in metodologie agili di sviluppo software come Scrum (appunto da noi utilizzata).
+Un burn down chart è una rappresentazione grafica del lavoro da fare su un progetto nel tempo. Il diagramma rappresenta una serie storica del lavoro da noi svolto. È utile per prevedere quando avverrà il completamento del lavoro. È spesso utilizzato in metodologie agili di sviluppo software come Scrum.
 
-In particolare per ottenere un grafico più accurato, noi abbiamo diviso gli sprint in 2 sprint minori e creato un grafico con il punteggio relativo.
+Per ottenere un grafico più accurato, abbiamo diviso gli sprint in due sprint minori e creato un grafico con il punteggio relativo.
 
-Divisione Sprint
-
+Divisione Sprint:
   1. Costruzione scheletro del sito
     1.1 WhereMI, VicinoMe, Cerca, Team,Profilo
     1.2 Login, posizione, punti di interesse
@@ -432,10 +443,10 @@ Tabella relativa ai punteggi per sprint
 
 Analizzando il grafico possiamo notare come il nostro si tratti di un Burndown Scope Creep: questo è accaduto perchè nuove attività sono state pianificate durante l’iterazione, priorità cambiate, attività urgenti da sviluppare il giorno dopo indispensabili per strumenti appena aggiunti, operazioni preliminari pianificate improvvisamente prima di eseguire le attività definite, insomma nessuno è stato più in grado di dire in modo preciso date di scadenza, perchè ogni giorno abbiamo stravolto decisiosi prese il giorno prima, dando spazio alla fantasia e imparando come funzionasse sviluppare una WebApp.
 
-## 3. GitLab <a name="gitlab"></a>
-GitLab è lo strumento di version control e repository utilizzato per il progetto. Non lo avevamo mai utilizzato, ma avendo usato GitHub in passato, conoscevamo già le sue potenzialità ed è stato facile familiarizzare con l'ambiente.
+<div style="page-break-after: always;"></div>
 
-Sapevamo che l'utilizzo di Git sarebbe stato fondamentale nello sviluppo perché ci ha permesso di scrivere codice e di evitare conflitti tra le varie versioni dei sorgenti.
+## 3. GitLab <a name="gitlab"></a>
+GitLab è lo strumento di version control e repository utilizzato per il progetto. Non lo avevamo mai utilizzato, ma avendo usato GitHub in passato, conoscevamo già le sue potenzialità ed è stato facile familiarizzare con l'ambiente. Sapevamo che l'utilizzo di Git sarebbe stato fondamentale nello sviluppo perché ci ha permesso di scrivere codice e di evitare conflitti tra le varie versioni dei sorgenti.
 
 Anche le funzionalità di repository sono state importantissime per noi: l'utilizzo dei branch ci ha permesso di lavorare alle due parti del progetto in modo autonomo.
 

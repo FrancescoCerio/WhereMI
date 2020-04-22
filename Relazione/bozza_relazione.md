@@ -63,7 +63,7 @@ Where MI è una web app che fornisce un modo semplice e veloce per trovare audio
   * **How**: clip che forniscono informazioni su come accedere ad un luogo;
 * L'editor permette ad una guida di creare annotazioni audio oppure testuali, associarle a locazioni georeferenziate, taggarle secondo numerose caratteristiche e caricarle su un server (nel nostro caso Youtube) che possa essere usato da turisti che visitano quei luoghi di interesse.
 <figure>
-   <img style="display:  block;margin-left: auto;margin-right: auto; margin-top:10%; max-width:100%; max-height:100%;" src="./Images/UML/UML2.png"  />
+   <img style="display:  block;margin-left: auto;margin-right: auto; margin-top:10%; max-width:100%; max-height:100%;" src="./Images/UML/UML3.png"  />
    <figcaption style="font-style: italic;font-style: italic;text-align: center;">Grafico UML dei casi d'uso della web application.</figcaption>
 </figure>
 
@@ -596,5 +596,3 @@ L'utilizzo di Mattermost non si è rivelato indispensabile, gli strumenti per la
 L'utilizzo di tutte queste tecnologie insieme ha portato allo sviluppo di un applicazione ben costruita che non presenta in bug, un'app fluida e che soddisfa le specifiche richieste.
 
 Possiamo dire, per concludere, che i software CAS sono stati utili ed efficaci nello sviluppo dell'applicativo. Ci hanno permesso di semplificare molte operazioni di organizzazione e di gestione del team con professionalità ed efficienza.
-
-<div style="page-break-after: always;"></div>

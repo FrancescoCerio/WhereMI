@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.10)  26 APR 2020 18:21
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.10)  27 APR 2020 17:55
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -972,59 +972,92 @@ thkerncmss.
 ) [2
 
 ]
-<Images/UML/UML2.png, id=71, 2497.26253pt x 2742.00882pt>
-File: Images/UML/UML2.png Graphic file (type png)
-<use Images/UML/UML2.png>
-Package pdftex.def Info: Images/UML/UML2.png  used on input line 78.
-(pdftex.def)             Requested size: 199.16928pt x 218.65392pt.
- [3
 
- <./Images/UML/UML2.png>]
-<Images/scrum/scrum-sprint.png, id=99, 1138.2525pt x 313.17pt>
-File: Images/scrum/scrum-sprint.png Graphic file (type png)
-<use Images/scrum/scrum-sprint.png>
-Package pdftex.def Info: Images/scrum/scrum-sprint.png  used on input line 98.
-(pdftex.def)             Requested size: 312.9803pt x 86.11006pt.
+! LaTeX Error: File `Images/UML/UML2' not found.
 
-Overfull \hbox (17.69044pt too wide) in paragraph at lines 98--98
- [] 
- []
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.78 \end{frame}
+                
+I could not locate the file with any of these extensions:
+.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPEG,.JBIG2,.JB2,.eps
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+[3
+
+]
+
+! LaTeX Error: File `Images/scrum/scrum-sprint' not found.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.98 \end{frame}
+                
+I could not locate the file with any of these extensions:
+.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPEG,.JBIG2,.JB2,.eps
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
 
 [4
 
- <./Images/scrum/scrum-sprint.png>] [5
+] [5
 
 ] [6
 
 ] [7
 
 ]
-<burndown/burndown_slides.png, id=204, 626.0991pt x 301.6068pt>
-File: burndown/burndown_slides.png Graphic file (type png)
-<use burndown/burndown_slides.png>
-Package pdftex.def Info: burndown/burndown_slides.png  used on input line 221.
-(pdftex.def)             Requested size: 312.9803pt x 150.7708pt.
+
+LaTeX Warning: File `burndown/burndown_slides.png' not found on input line 221.
+
+
+
+! Package pdftex.def Error: File `burndown/burndown_slides.png' not found: usin
+g draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.221 \end{frame}
+                 
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
 
 Overfull \hbox (17.69044pt too wide) in paragraph at lines 221--221
  [] 
  []
 
+
+Overfull \vbox (128.47278pt too high) detected at line 221
+ []
+
 [8
 
- <./burndown/burndown_slides.png>]
-<Images/GitLab/branches2.png, id=231, 1198.7184pt x 297.5115pt>
-File: Images/GitLab/branches2.png Graphic file (type png)
-<use Images/GitLab/branches2.png>
-Package pdftex.def Info: Images/GitLab/branches2.png  used on input line 235.
-(pdftex.def)             Requested size: 312.9803pt x 77.67801pt.
+]
 
-Overfull \hbox (17.69044pt too wide) in paragraph at lines 235--235
- [] 
- []
+! LaTeX Error: File `Images/GitLab/branches2' not found.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.235 \end{frame}
+                 
+I could not locate the file with any of these extensions:
+.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPEG,.JBIG2,.JB2,.eps
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
 
 [9
 
- <./Images/GitLab/branches2.png>] [10
+] [10
 
 ] [11
 
@@ -1053,10 +1086,10 @@ Package rerunfilecheck Info: File `bozza_slide.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 20944 strings out of 480608
- 414121 string characters out of 5903630
- 660177 words of memory out of 5000000
- 36306 multiletter control sequences out of 15000+600000
+ 20991 strings out of 480608
+ 415062 string characters out of 5903630
+ 660233 words of memory out of 5000000
+ 36340 multiletter control sequences out of 15000+600000
  543356 words of font info for 64 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  58i,14n,67p,778b,543s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1066,10 +1099,10 @@ Here is how much of TeX's memory you used:
 usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmss9.pfb></us
 r/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr
 /local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb>
-Output written on bozza_slide.pdf (14 pages, 785749 bytes).
+Output written on bozza_slide.pdf (14 pages, 90397 bytes).
 PDF statistics:
- 412 PDF objects out of 1000 (max. 8388607)
- 372 compressed objects within 4 object streams
+ 403 PDF objects out of 1000 (max. 8388607)
+ 371 compressed objects within 4 object streams
  29 named destinations out of 1000 (max. 500000)
- 63 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 43 words of extra memory for PDF output out of 10000 (max. 10000000)
 

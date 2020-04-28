@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.10)  28 APR 2020 00:41
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.10)  28 APR 2020 11:22
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1102,7 +1102,7 @@ Package rerunfilecheck Info: File `bozza_slide.out' has not changed.
 Here is how much of TeX's memory you used:
  21015 strings out of 480608
  415659 string characters out of 5903630
- 658231 words of memory out of 5000000
+ 658233 words of memory out of 5000000
  36359 multiletter control sequences out of 15000+600000
  543356 words of font info for 64 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191

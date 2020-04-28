@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.10)  26 APR 2020 18:21
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.10)  28 APR 2020 11:22
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1066,7 +1066,7 @@ Here is how much of TeX's memory you used:
 usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmss9.pfb></us
 r/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr
 /local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb>
-Output written on bozza_slide.pdf (14 pages, 785749 bytes).
+Output written on bozza_slide.pdf (14 pages, 785755 bytes).
 PDF statistics:
  412 PDF objects out of 1000 (max. 8388607)
  372 compressed objects within 4 object streams

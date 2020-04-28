@@ -41,15 +41,17 @@
 \end{frame}
 
 \begin{frame}
+\frametitle{Specifiche}
 Where MI è un'app per trovare velocemente audioguide sul web. E' pensata per due tipi di utenti:
 \begin{itemize}
-  \item Le guide che posteranno gratuitamente video sul web
-  \item I turisti, in cerca di consigli, cultura e svago
+  \item \textbf{Le guide}: postano gratuitamente video sul web
+  \item \textbf{I turisti}: in cerca di consigli, cultura e svago
 \end{itemize}
-Where MI è una coppia di web application:
+\vspace{0.2cm}
+È composta da due web app:
 \begin{itemize}
-  \item Il browser permette al turista di trovare audio, video e testo dei principali luoghi d'interesse
-  \item L'editor permette ad una guida di creare audio, video e testo associati a dei luoghi e catalogarle
+  \item \textbf{Il browser} permette al turista di trovare audio, video e testo dei luoghi d'interesse
+  \item \textbf{L'editor} permette ad una guida di creare audio, video e testo associati ai luoghi e catalogarli
 \end{itemize}
 \vspace{0.2cm}
 \centering Divisione Compiti
@@ -79,41 +81,22 @@ Where MI è una coppia di web application:
 \end{frame}
 
 \begin{frame}
-\frametitle{Tecnologie utilizzate}
-\begin{itemize}
-  \item HTML, CSS
-  \item Javascript
-  \item Gocker
+\frametitle{Organizzazione Taiga}
+User Story
   \begin{itemize}
-  \item NodeJs (lato server)
-  \item MongoDB (per eventuali database)
-\end{itemize}
-\end{itemize}
-Metodologia di sviluppo
-  \begin{itemize}
-  \item Scrum
-\end{itemize}
-      \centering  \begin{tabular}{c}
-        \includegraphics[width=11cm]{Images/scrum/scrum-sprint}
-      \end{tabular}
-\end{frame}
-
-\begin{frame}
-\frametitle{Software CAS}
-\framesubtitle{Taiga}
-Organizzazione User Story
-  \begin{itemize}
-  	\item Le abbiamo divise in Editor e Browser
-	\item Ad ognuna di esse abbiamo dato un tag
-	\item Sono stati assegnati i punteggi UX/Design/Front/Back
-	\item Abbiamo utilizzato i commenti per mostrare i progressi nel loro sviluppo
+  	\item Divisione tra Editor e Browser
+	\item Divide et Impera
+	\item Utilizzo dei tag e punteggi UX/Design/Front/Back
+	\item Utilizzo di commenti per mostrare i progressi nel loro sviluppo
   \end{itemize}
-  Organizzazione Kanban
+\vspace{5mm}
+  Utilizzo del Kanban
     \begin{itemize}
-  	\item Ad ogni nuova implementazione veniva aggiornato il Kanban
-	\item Usato sotto storie per sviluppi minori
-	\item Non tutte le idee sono state effettivamente sviluppate
+	\item Monitoraggio dell'avanzamento del progetto
+	\item Aggiornamento costante
   \end{itemize}
+  \vspace{5mm}
+  Nota: Non tutte le user story sono state effettivamente sviluppate
 \end{frame}
 
 \begin{frame}
@@ -130,6 +113,7 @@ Organizzazione User Story
 \framesubtitle{20/01/2020 - 03/02/2020}
 \begin{columns}
 \column{0.5\textwidth}
+Obiettivo: 
   \begin{itemize}
 	\item Mappa
 	\item Login
@@ -144,7 +128,7 @@ Organizzazione User Story
   \centering  
   \begin{figure}[h]
         \includegraphics[width=5cm]{Images/SonarQube/primo-sprint.png}
-        \caption{Risultato primo sprint}
+        \caption{Analisi SonarQube primo sprint}
    \end{figure}
 \end{columns}
 \end{frame}
@@ -154,6 +138,7 @@ Organizzazione User Story
 \framesubtitle{03/02/2020 - 09/02/2020}
 \begin{columns}
 \column{0.5\textwidth}
+Obiettivo:
   \begin{itemize}
 	\item Creazione Contenuti
 	\item Css vicino a me
@@ -168,7 +153,7 @@ Organizzazione User Story
 \column{0.5\textwidth}
 	\begin{figure}[h]
         \includegraphics[width=5cm]{Images/SonarQube/terzo-sprint.png}
-        \caption{Risultato secondo sprint}
+        \caption{Analisi SonarQube secondo sprint}
    \end{figure}
 \end{columns}
 \end{frame}
@@ -178,6 +163,7 @@ Organizzazione User Story
 \framesubtitle{09/02/2020 - 13/02/2020}
 \begin{columns}
 \column{0.5\textwidth}
+Obiettivo:
   \begin{itemize}
 	\item Descrizione Wikipedia
 	\item Feedback vocale
@@ -190,7 +176,7 @@ Organizzazione User Story
 \column{0.5\textwidth}
 	\begin{figure}[h]
         \includegraphics[width=5cm]{Images/SonarQube/terzo-sprint.png}
-        \caption{Risultato terzo sprint}
+        \caption{Analisi SonarQube terzo sprint}
    \end{figure}
 \end{columns}
 \end{frame}
@@ -200,6 +186,7 @@ Organizzazione User Story
 \framesubtitle{(non programmato) 20/02/2020 - 04/03/2020}
 \begin{columns}
 \column{0.5\textwidth}
+Obiettivo:
   \begin{itemize}
 	\item Controllo Vocale
 	\item Ricerca Luogo
@@ -211,7 +198,7 @@ Organizzazione User Story
 	\begin{figure}[h]
 	\centering
         \includegraphics[width=5cm]{Images/SonarQube/ultimo-sprint.png}
-        \caption{Risultato quarto sprint}
+        \caption{Analisi SonarQube quarto sprint}
    \end{figure}
 \end{columns}
 \end{frame}
@@ -257,6 +244,26 @@ Punteggio 	& 138,5			& 136			& 168			& 78 			 	 \\
  \centering
         \begin{tabular}{c}
         \includegraphics[width=11cm]{burndown/burndown_slides.png}
+      \end{tabular}
+\end{frame}
+
+\begin{frame}
+\frametitle{Tecnologie utilizzate}
+\begin{itemize}
+  \item HTML, CSS
+  \item Javascript
+  \item Gocker
+  \begin{itemize}
+  \item NodeJs (lato server)
+  \item MongoDB (per eventuali database)
+\end{itemize}
+\end{itemize}
+Metodologia di sviluppo
+  \begin{itemize}
+  \item Scrum
+\end{itemize}
+      \centering  \begin{tabular}{c}
+        \includegraphics[width=11cm]{Images/scrum/scrum-sprint}
       \end{tabular}
 \end{frame}
 

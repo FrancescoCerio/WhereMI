@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2020.3.7)  28 APR 2020 18:47
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2020.3.7)  28 APR 2020 19:08
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -962,32 +962,32 @@ thkerncmss.
 ) [2
 
 ]
-<Images/UML/UML3.png, id=72, 1488.762pt x 1514.0565pt>
-File: Images/UML/UML3.png Graphic file (type png)
-<use Images/UML/UML3.png>
-Package pdftex.def Info: Images/UML/UML3.png  used on input line 98.
-(pdftex.def)             Requested size: 170.71652pt x 173.61612pt.
+<Images/UML/UML4.png, id=72, 1141.3842pt x 1303.9917pt>
+File: Images/UML/UML4.png Graphic file (type png)
+<use Images/UML/UML4.png>
+Package pdftex.def Info: Images/UML/UML4.png  used on input line 97.
+(pdftex.def)             Requested size: 142.26378pt x 162.52103pt.
+<Images/diagramma_di_classe2.png, id=73, 561.5379pt x 448.5558pt>
+File: Images/diagramma_di_classe2.png Graphic file (type png)
+<use Images/diagramma_di_classe2.png>
+Package pdftex.def Info: Images/diagramma_di_classe2.png  used on input line 97
+.
+(pdftex.def)             Requested size: 156.49014pt x 124.9993pt.
 
-Overfull \hbox (17.0716pt too wide) in paragraph at lines 98--98
+Overfull \hbox (2.84521pt too wide) in paragraph at lines 97--97
  [] 
  []
 
-<Images/diagramma_di_classe.png, id=74, 2559.5625pt x 2051.665pt>
-File: Images/diagramma_di_classe.png Graphic file (type png)
-<use Images/diagramma_di_classe.png>
-Package pdftex.def Info: Images/diagramma_di_classe.png  used on input line 98.
-
-(pdftex.def)             Requested size: 142.26378pt x 114.01588pt.
 [3
 
- <./Images/UML/UML3.png> <./Images/diagramma_di_classe.png>] [4
+ <./Images/UML/UML4.png> <./Images/diagramma_di_classe2.png>] [4
 
 ]
-<Images/Taiga/UserStory/backlog.png, id=127, 982.67125pt x 761.84625pt>
+<Images/Taiga/UserStory/backlog.png, id=126, 982.67125pt x 761.84625pt>
 File: Images/Taiga/UserStory/backlog.png Graphic file (type png)
 <use Images/Taiga/UserStory/backlog.png>
 Package pdftex.def Info: Images/Taiga/UserStory/backlog.png  used on input line
- 126.
+ 125.
 (pdftex.def)             Requested size: 256.0748pt x 198.52872pt.
  [5
 
@@ -996,7 +996,7 @@ Package pdftex.def Info: Images/Taiga/UserStory/backlog.png  used on input line
 File: Images/SonarQube/primo-sprint.png Graphic file (type png)
 <use Images/SonarQube/primo-sprint.png>
 Package pdftex.def Info: Images/SonarQube/primo-sprint.png  used on input line 
-151.
+150.
 (pdftex.def)             Requested size: 142.26378pt x 156.19766pt.
  [6
 
@@ -1005,7 +1005,7 @@ Package pdftex.def Info: Images/SonarQube/primo-sprint.png  used on input line
 File: Images/SonarQube/terzo-sprint.png Graphic file (type png)
 <use Images/SonarQube/terzo-sprint.png>
 Package pdftex.def Info: Images/SonarQube/terzo-sprint.png  used on input line 
-176.
+175.
 (pdftex.def)             Requested size: 142.26378pt x 110.94615pt.
 
 [7
@@ -1014,7 +1014,7 @@ Package pdftex.def Info: Images/SonarQube/terzo-sprint.png  used on input line
 File: Images/SonarQube/terzo-sprint.png Graphic file (type png)
 <use Images/SonarQube/terzo-sprint.png>
 Package pdftex.def Info: Images/SonarQube/terzo-sprint.png  used on input line 
-199.
+198.
 (pdftex.def)             Requested size: 142.26378pt x 110.94615pt.
  [8
 
@@ -1023,7 +1023,7 @@ Package pdftex.def Info: Images/SonarQube/terzo-sprint.png  used on input line
 File: Images/SonarQube/ultimo-sprint.png Graphic file (type png)
 <use Images/SonarQube/ultimo-sprint.png>
 Package pdftex.def Info: Images/SonarQube/ultimo-sprint.png  used on input line
- 221.
+ 220.
 (pdftex.def)             Requested size: 142.26378pt x 112.54277pt.
  [9
 
@@ -1031,10 +1031,10 @@ Package pdftex.def Info: Images/SonarQube/ultimo-sprint.png  used on input line
 <burndown/burndown_slides.png, id=264, 626.0991pt x 301.6068pt>
 File: burndown/burndown_slides.png Graphic file (type png)
 <use burndown/burndown_slides.png>
-Package pdftex.def Info: burndown/burndown_slides.png  used on input line 265.
+Package pdftex.def Info: burndown/burndown_slides.png  used on input line 264.
 (pdftex.def)             Requested size: 312.9803pt x 150.7708pt.
 
-Overfull \hbox (17.69043pt too wide) in paragraph at lines 265--265
+Overfull \hbox (17.69043pt too wide) in paragraph at lines 264--264
  [] 
  []
 
@@ -1044,11 +1044,11 @@ Overfull \hbox (17.69043pt too wide) in paragraph at lines 265--265
 <Images/scrum/scrum-sprint.png, id=291, 1138.2525pt x 313.17pt>
 File: Images/scrum/scrum-sprint.png Graphic file (type png)
 <use Images/scrum/scrum-sprint.png>
-Package pdftex.def Info: Images/scrum/scrum-sprint.png  used on input line 285.
+Package pdftex.def Info: Images/scrum/scrum-sprint.png  used on input line 284.
 
 (pdftex.def)             Requested size: 312.9803pt x 86.11006pt.
 
-Overfull \hbox (17.69043pt too wide) in paragraph at lines 285--285
+Overfull \hbox (17.69043pt too wide) in paragraph at lines 284--284
  [] 
  []
 
@@ -1058,10 +1058,10 @@ Overfull \hbox (17.69043pt too wide) in paragraph at lines 285--285
 <Images/GitLab/branches2.png, id=318, 1198.7184pt x 297.5115pt>
 File: Images/GitLab/branches2.png Graphic file (type png)
 <use Images/GitLab/branches2.png>
-Package pdftex.def Info: Images/GitLab/branches2.png  used on input line 299.
+Package pdftex.def Info: Images/GitLab/branches2.png  used on input line 298.
 (pdftex.def)             Requested size: 312.9803pt x 77.67801pt.
 
-Overfull \hbox (17.69043pt too wide) in paragraph at lines 299--299
+Overfull \hbox (17.69043pt too wide) in paragraph at lines 298--298
  [] 
  []
 
@@ -1094,22 +1094,22 @@ Overfull \hbox (17.69043pt too wide) in paragraph at lines 299--299
 \tf@snm=\write8
 \openout8 = `bozza_slide.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 415.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 415.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 414.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 414.
  (./bozza_slide.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 415.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 415.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 414.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 414.
 Package rerunfilecheck Info: File `bozza_slide.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
  20245 strings out of 492616
- 399324 string characters out of 6129482
+ 399329 string characters out of 6129482
  470536 words of memory out of 5000000
  23666 multiletter control sequences out of 15000+600000
  14952 words of font info for 55 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 56i,14n,55p,778b,636s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 56i,14n,55p,778b,634s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb
 ></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb>
 </usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></
@@ -1118,7 +1118,7 @@ r/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></u
 sr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></us
 r/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb>
 
-Output written on bozza_slide.pdf (20 pages, 1704469 bytes).
+Output written on bozza_slide.pdf (20 pages, 1669370 bytes).
 PDF statistics:
  583 PDF objects out of 1000 (max. 8388607)
  524 compressed objects within 6 object streams

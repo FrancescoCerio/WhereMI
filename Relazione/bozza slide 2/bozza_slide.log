@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.10)  29 APR 2020 17:52
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.10)  29 APR 2020 18:05
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1084,11 +1084,7 @@ Overfull \hbox (17.69044pt too wide) in paragraph at lines 298--298
 
 ] [15
 
-]
-Overfull \vbox (68.05618pt too high) detected at line 414
- []
-
-[16
+] [16
 
 ] [17
 
@@ -1096,7 +1092,8 @@ Overfull \vbox (68.05618pt too high) detected at line 414
 
 ] [19
 
-] [20
+]
+[20
 
 ]
 \tf@nav=\write6
@@ -1108,18 +1105,18 @@ Overfull \vbox (68.05618pt too high) detected at line 414
 \tf@snm=\write8
 \openout8 = `bozza_slide.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 516.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 516.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 528.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 528.
  (./bozza_slide.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 516.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 516.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 528.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 528.
 Package rerunfilecheck Info: File `bozza_slide.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
  21024 strings out of 480608
  415909 string characters out of 5903630
- 661233 words of memory out of 5000000
+ 662233 words of memory out of 5000000
  36365 multiletter control sequences out of 15000+600000
  543650 words of font info for 65 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -1132,7 +1129,7 @@ r/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></u
 sr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></us
 r/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb>
 
-Output written on bozza_slide.pdf (20 pages, 1676551 bytes).
+Output written on bozza_slide.pdf (20 pages, 1676317 bytes).
 PDF statistics:
  583 PDF objects out of 1000 (max. 8388607)
  524 compressed objects within 6 object streams

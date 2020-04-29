@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.10)  28 APR 2020 20:21
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.10)  29 APR 2020 15:40
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1105,34 +1105,34 @@ Overfull \hbox (17.69044pt too wide) in paragraph at lines 298--298
 \tf@snm=\write8
 \openout8 = `bozza_slide.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 414.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 414.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 438.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 438.
  (./bozza_slide.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 414.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 414.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 438.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 438.
 Package rerunfilecheck Info: File `bozza_slide.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 21033 strings out of 480608
- 416149 string characters out of 5903630
- 658233 words of memory out of 5000000
- 36374 multiletter control sequences out of 15000+600000
+ 21024 strings out of 480608
+ 415909 string characters out of 5903630
+ 660233 words of memory out of 5000000
+ 36365 multiletter control sequences out of 15000+600000
  543650 words of font info for 65 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 58i,14n,67p,778b,630s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 58i,14n,67p,778b,644s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb
 ></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb>
 </usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></
 usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmss9.pfb></us
 r/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></u
-sr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></us
-r/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr
-/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb>
-Output written on bozza_slide.pdf (20 pages, 1681812 bytes).
+sr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></us
+r/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb>
+
+Output written on bozza_slide.pdf (20 pages, 1674597 bytes).
 PDF statistics:
- 587 PDF objects out of 1000 (max. 8388607)
- 527 compressed objects within 6 object streams
+ 583 PDF objects out of 1000 (max. 8388607)
+ 524 compressed objects within 6 object streams
  41 named destinations out of 1000 (max. 500000)
  88 words of extra memory for PDF output out of 10000 (max. 10000000)
 
